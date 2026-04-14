@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peters Vvs – VVS i Ølby & hele Sjælland | Ring +4561714003</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#0a0f1a;--blue:#1a3a5c;--accent:#f0a500;--accent2:#e8950a;--light:#f5f5f0;--white:#ffffff;--gray:#b0b8c1;--card:#111827}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--dark);color:var(--light);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+nav{background:rgba(10,15,26,0.97);position:fixed;top:0;width:100%;z-index:1000;border-bottom:1px solid rgba(240,165,0,0.15);backdrop-filter:blur(10px)}
+nav .container{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.logo{font-size:1.5rem;font-weight:800;color:var(--accent);letter-spacing:-0.5px}
+.logo span{color:var(--light)}
+nav ul{display:flex;list-style:none;gap:28px;align-items:center}
+nav ul li a{color:var(--gray);font-size:0.92rem;font-weight:500;transition:color 0.3s}
+nav ul li a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--dark);padding:10px 22px;border-radius:6px;font-weight:700;font-size:0.92rem;transition:all 0.3s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.menu-toggle span{width:26px;height:2.5px;background:var(--accent);border-radius:2px;transition:0.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(26,58,92,0.4) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(240,165,0,0.08) 0%,transparent 50%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,165,0,0.1);border:1px solid rgba(240,165,0,0.25);padding:8px 18px;border-radius:50px;font-size:0.85rem;color:var(--accent);margin-bottom:20px;font-weight:600}
+.hero-badge .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:3.4rem;font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:20px}
+.hero h1 .highlight{color:var(--accent);position:relative}
+.hero .sub{font-size:1.15rem;color:var(--gray);margin-bottom:35px;max-width:480px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.btn-primary{background:var(--accent);color:var(--dark);padding:16px 34px;border-radius:8px;font-weight:800;font-size:1.05rem;transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,165,0,0.3)}
+.btn-secondary{background:transparent;color:var(--light);padding:16px 34px;border-radius:8px;font-weight:700;font-size:1.05rem;border:2px solid rgba(255,255,255,0.15);transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;cursor:pointer}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-phone{font-size:1.1rem;color:var(--gray)}
+.hero-phone a{color:var(--accent);font-weight:700;font-size:1.25rem}
+.hero-right{position:relative}
+.hero-card{background:var(--card);border-radius:20px;padding:45px;border:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(240,165,0,0.04) 0%,transparent 60%)}
+.hero-card .icon-big{font-size:4rem;margin-bottom:20px}
+.hero-card h3{font-size:1.4rem;font-weight:700;margin-bottom:12px}
+.hero-card p{color:var(--gray);font-size:0.95rem;margin-bottom:25px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.05)}
+.stat .num{font-size:1.8rem;font-weight:900;color:var(--accent)}
+.stat .label{font-size:0.78rem;color:var(--gray);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--card);border-top:1px solid rgba(240,165,0,0.1);border-bottom:1px solid rgba(240,165,0,0.1);padding:30px 0}
+.trust-items{display:flex;justify-content:center;flex-wrap:wrap;gap:40px}
+.trust-item{display:flex;align-items:center;gap:12px;font-weight:600;font-size:0.95rem}
+.trust-icon{font-size:1.6rem}
+.trust-item span.accent{color:var(--accent)}
+
+/* URGENCY */
+.urgency{background:linear-gradient(135deg,rgba(240,165,0,0.12),rgba(240,165,0,0.03));border:1px solid rgba(240,165,0,0.2);border-radius:14px;padding:28px 40px;margin:60px auto;max-width:800px;text-align:center;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.urgency .icon{font-size:2rem}
+.urgency p{font-size:1.1rem;font-weight:600}
+.urgency strong{color:var(--accent)}
+
+/* SERVICES */
+.services{padding:100px 0}
+.section-label{color:var(--accent);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px}
+.section-title{font-size:2.6rem;font-weight:900;letter-spacing:-1px;margin-bottom:16px}
+.section-sub{color:var(--gray);font-size:1.05rem;max-width:550px;margin-bottom:50px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--card);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:36px 30px;transition:all 0.4s;position:relative;overflow:hidden}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transition:transform 0.4s}
+.service-card:hover::after{transform:scaleX(1)}
+.service-card:hover{border-color:rgba(240,165,0,0.2);transform:translateY(-4px)}
+.service-card .s-icon{font-size:2.4rem;margin-bottom:18px}
+.service-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.service-card p{color:var(--gray);font-size:0.9rem;line-height:1.7}
+
+/* ABOUT */
+.about{padding:100px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-visual{position:relative}
+.about-box{background:linear-gradient(135deg,var(--blue),#0d1f33);border-radius:20px;padding:60px 50px;position:relative;overflow:hidden}
+.about-box::before{content:'🔧';font-size:8rem;position:absolute;top:-20px;right:-20px;opacity:0.06}
+.about-box .big-number{font-size:6rem;font-weight:900;color:var(--accent);line-height:1}
+.about-box .big-label{font-size:1.3rem;font-weight:600;margin-top:10px;color:var(--light)}
+.about-box .big-sub{color:var(--gray);margin-top:6px;font-size:0.95rem}
+.about-floating{position:absolute;bottom:-20px;right:-20px;background:var(--accent);color:var(--dark);padding:20px 28px;border-radius:14px;font-weight:800;font-size:1.1rem;box-shadow:0 10px 40px rgba(240,165,0,0.3)}
+.about-content h2{font-size:2.4rem;font-weight:900;margin-bottom:20px;letter-spacing:-1px}
+.about-content p{color:var(--gray);margin-bottom:18px;font-size:1rem;line-height:1.8}
+.about-list{list-style:none;margin-top:25px}
+.about-list li{display:flex;align-items:center;gap:12px;padding:10px 0;font-weight:600;font-size:0.98rem}
+.about-list li .check{color:var(--accent);font-size:1.2rem}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--accent),#d48a00);padding:60px 0;text-align:center;margin:40px 0}
+.cta-banner h2{font-size:2.2rem;font-weight:900;color:var(--dark);margin-bottom:12px}
+.cta-banner p{color:rgba(0,0,0,0.65);font-size:1.1rem;margin-bottom:28px;font-weight:500}
+.btn-dark{background:var(--dark);color:var(--accent);padding:16px 38px;border-radius:8px;font-weight:800;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:all 0.3s;border:none;cursor:pointer}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+
+/* REVIEWS */
+.reviews{padding:100px 0}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.review-card{background:var(--card);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:36px 30px;position:relative}
+.review-stars{color:var(--accent);font-size:1.1rem;letter-spacing:2px;margin-bottom:16px}
+.review-card blockquote{color:var(--gray);font-size:0.95rem;line-height:1.8;font-style:italic;margin-bottom:22px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent);font-size:1.1rem}
+.review-name{font-weight:700;font-size:0.95rem}
+.review-location{color:var(--gray);font-size:0.82rem}
+
+/* GUARANTEE */
+.guarantee{padding:80px 0}
+.guarantee-box{background:var(--card);border:2px solid rgba(240,165,0,0.15);border-radius:20px;padding:50px;display:flex;align-items:center;gap:40px}
+.guarantee-icon{font-size:4rem;flex-shrink:0}
+.guarantee-box h3{font-size:1.5rem;font-weight:800;margin-bottom:10px}
+.guarantee-box p{color:var(--gray);font-size:1rem;line-height:1.7}
+
+/* CONTACT */
+.contact{padding:100px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-info h2{font-size:2.4rem;font-weight:900;margin-bottom:16px;letter-spacing:-1px}
+.contact-info>p{color:var(--gray);margin-bottom:35px;font-size:1.05rem;line-height:1.7}
+.contact-method{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.contact-method .c-icon{width:50px;height:50px;background:rgba(240,165,0,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.contact-method .c-label{font-size:0.82rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+.contact-method .c-value{font-weight:700;font-size:1.1rem;color:var(--light)}
+.contact-method .c-value a{color:var(--accent)}
+.form-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:45px}
+.form-card h3{font-size:1.4rem;font-weight:800;margin-bottom:6px}
+.form-card .form-sub{color:var(--gray);font-size:0.9rem;margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:600;font-size:0.88rem;margin-bottom:6px;color:var(--gray)}
+.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:14px 18px;color:var(--light);font-size:0.95rem;font-family:inherit;transition:border 0.3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-submit{background:var(--accent);color:var(--dark);padding:16px;border-radius:10px;font-weight:800;font-size:1.05rem;border:none;width:100%;cursor:pointer;transition:all 0.3s;margin-top:6px}
+.form-submit:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,165,0,0.3)}
+.form-note{text-align:center;color:var(--gray);font-size:0.8rem;margin-top:14px}
+
+/* FOOTER */
+footer{background:var(--card);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;text-align:center}
+footer p{color:var(--gray);font-size:0.88rem}
+footer a{color:var(--accent)}
+
+/* STICKY CTA */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--accent);padding:14px 20px;text-align:center}
+.sticky-cta a{color:var(--dark);font-weight:800;font-size:1.1rem;display:flex;align-items:center;justify-content:center;gap:10px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav ul.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--dark);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid rgba(240,165,0,0.15)}
+nav ul.nav-links.open{display:flex}
+.menu-toggle{display:flex}
+.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+.hero h1{font-size:2.4rem}
+.hero-right{margin-top:40px}
+.services-grid,.reviews-grid{grid-template-columns:1fr}
+.section-title{font-size:2rem}
+.about-grid{gap:40px}
+.guarantee-box{flex-direction:column;text-align:center;gap:20px}
+.sticky-cta{display:block}
+.trust-items{gap:20px}
+.hero-stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+.hero h1{font-size:2rem}
+.hero-btns{flex-direction:column}
+.btn-primary,.btn-secondary{justify-content:center;width:100%}
+.hero-card{padding:30px 24px}
+.stat .num{font-size:1.4rem}
+.urgency{padding:20px;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+<div class="container">
+<a href="#" class="logo">Peters<span>Vvs</span></a>
+<button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links">
+<li><a href="#services">Ydelser</a></li>
+<li><a href="#about">Om os</a></li>
+<li><a href="#reviews">Anmeldelser</a></li>
+<li><a href="#contact">Kontakt</a></li>
+<li><a href="tel:+4561714003" class="nav-cta">📞 Ring nu</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-left">
+<div class="hero-badge"><span class="dot"></span> Ledige tider denne uge</div>
+<h1>Professionel <span class="highlight">VVS</span> i Ølby &amp; hele Sjælland</h1>
+<p class="sub">Vi løser alle VVS-opgaver – fra dryppende vandhaner til komplette badeværelsesrenoveringer. Altid til fair priser, altid med garanti på arbejdet.</p>
+<div class="hero-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring nu: 61 71 40 03</a>
+<a href="#contact" class="btn-secondary">✉️ Få gratis tilbud</a>
+</div>
+<p class="hero-phone">Eller ring direkte: <a href="tel:+4561714003">+45 61 71 40 03</a></p>
+</div>
+<div class="hero-right">
+<div class="hero-card">
+<div class="icon-big">🔧</div>
+<h3>Hurtig VVS-hjælp i Ølby</h3>
+<p>Vi svarer inden for 1 time og kan ofte komme samme dag. Bo Petersen står klar til at hjælpe dig.</p>
+<div class="hero-stats">
+<div class="stat"><div class="num">6+</div><div class="label">Års erfaring</div></div>
+<div class="stat"><div class="num">500+</div><div class="label">Opgaver løst</div></div>
+<div class="stat"><div class="num">5★</div><div class="label">Anmeldelser</div></div>
+<div class="stat"><div class="num">100%</div><div class="label">Garanti</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+<div class="container">
+<div class="trust-items">
+<div class="trust-item"><span class="trust-icon">⭐</span> <span><span class="accent">5-stjernet</span> anmeldelser</span></div>
+<div class="trust-item"><span class="trust-icon">🛡️</span> <span><span class="accent">Garanti</span> på alt arbejde</span></div>
+<div class="trust-item"><span class="trust-icon">📋</span> <span><span class="accent">Gratis</span> tilbud uden binding</span></div>
+<div class="trust-item"><span class="trust-icon">⚡</span> <span><span class="accent">Svar</span> inden 1 time</span></div>
+<div class="trust-item"><span class="trust-icon">📍</span> <span>Lokalt i <span class="accent">Ølby</span></span></div>
+</div>
+</div>
+</div>
+
+<!-- URGENCY -->
+<div class="container">
+<div class="urgency">
+<span class="icon">⏰</span>
+<p>Vi har <strong>ledige tider denne uge</strong> – ring nu og få en hurtig aftale. Vi svarer <strong>inden for 1 time!</strong></p>
+<a href="tel:+4561714003" class="btn-primary" style="padding:12px 24px;font-size:0.95rem">Ring 61 71 40 03</a>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-label">Vores ydelser</div>
+<h2 class="section-title">VVS-løsninger i Ølby & på Sjælland</h2>
+<p class="section-sub">Vi dækker alle typer VVS-arbejde – stort som småt. Her er et udsnit af det, vi kan hjælpe dig med.</p>
+<div class="services-grid">
+<div class="service-card">
+<div class="s-icon">🚿</div>
+<h3>Badeværelsesrenovering</h3>
+<p>Komplet renovering af badeværelse – fra rør i gulv til fliser og armaturer. Vi styrer hele projektet for dig i Ølby og omegn.</p>
+</div>
+<div class="service-card">
+<div class="s-icon">🔧</div>
+<h3>Reparation af vandrør</h3>
+<p>Utætte rør, dryppende vandhaner eller rør der fryser? Vi rykker hurtigt ud og fikser problemet, så du undgår vandskader.</p>
+</div>
+<div class="service-card">
+<div class="s-icon">🏠</div>
+<h3>Varmeanlæg & Radiatorer</h3>
+<p>Installation og reparation af radiatorer, gulvvarme og varmtvandsbeholdere. Hold varmen i dit hjem i Ølby med et velfungerende anlæg.</p>
+</div>
+<div class="service-card">
+<div class="s-icon">🚽</div>
+<h3>Toilet & Afløb</h3>
+<p>Stoppet afløb, nyt toilet eller problemer med kloakken? Vi løser det hurtigt og effektivt, så du slipper for besværet.</p>
+</div>
+<div class="service-card">
+<div class="s-icon">🍳</div>
+<h3>Køkken VVS</h3>
+<p>Nyt køkken eller nye vandhaner? Vi sørger for korrekt tilslutning af vand og afløb til opvaskemaskine, vask og alt andet.</p>
+</div>
+<div class="service-card">
+<div class="s-icon">🆘</div>
+<h3>Akut VVS-hjælp</h3>
+<p>Sprængt vandrør eller oversvømmelse? Ring med det samme – vi prioriterer akutte opgaver på hele Sjælland.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+<div class="container">
+<h2>Klar til at få løst din VVS-opgave?</h2>
+<p>Ring til Bo Petersen nu – eller send en besked og få et gratis tilbud uden binding.</p>
+<a href="tel:+4561714003" class="btn-dark">📞 Ring 61 71 40 03 nu</a>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="container">
+<div class="about-grid">
+<div class="about-visual">
+<div class="about-box">
+<div class="big-number">6</div>
+<div class="big-label">Års erfaring med VVS</div>
+<div class="big-sub">I Ølby og på hele Sjælland</div>
+</div>
+<div class="about-floating">Ølby & Sjælland 📍</div>
+</div>
+<div class="about-content">
+<div class="section-label">Om Peters Vvs</div>
+<h2>Lokal VVS-mester i Ølby – med kærlighed til faget</h2>
+<p>Mit navn er Bo Petersen, og jeg driver Peters Vvs fra Ølby. Med 6 års erfaring i branchen har jeg hjulpet hundredevis af kunder på hele Sjælland med alt fra småting til store renoveringsprojekter.</p>
+<p>Jeg startede Peters Vvs, fordi jeg har en ægte kærlighed til VVS-faget. For mig handler det ikke bare om rør og fittings – det handler om at levere et stykke arbejde, som jeg selv ville være tilfreds med i mit eget hjem. Når du ringer til mig, får du en ærlig snak om, hvad der skal til, og hvad det koster. Ingen overraskelser.</p>
+<ul class="about-list">
+<li><span class="check">✅</span> Lokal virksomhed i Ølby</li>
+<li><span class="check">✅</span> Dækker hele Sjælland</li>
+<li><span class="check">✅</span> 6 års praktisk erfaring</li>
+<li><span class="check">✅</span> Garanti på alt arbejde</li>
+<li><span class="check">✅</span> Gratis og uforpligtende tilbud</li>
+<li><span class="check">✅</span> Hurtig responstid – ofte samme dag</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<div class="container">
+<div class="section-label">Kundeanmeldelser</div>
+<h2 class="section-title">Det siger vores kunder</h2>
+<p class="section-sub">Vi er stolte over den tillid, vores kunder i Ølby og på Sjælland viser os.</p>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<blockquote>"Vi havde et sprængt vandrør i kælderen en lørdag morgen. Bo kom inden for to timer og fik det hele fikset. Rolig, professionel og til en fair pris. Kan klart anbefales til alle i Ølby-området."</blockquote>
+<div class="review-author">
+<div class="review-avatar">M</div>
+<div>
+<div class="review-name">Morten Jensen</div>
+<div class="review-location">📍 Ølby</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<blockquote>"Bo renoverede vores badeværelse fra bund til top. Han var ærlig om prisen fra start, holdt tidsplanen og resultatet er fantastisk. Det er tydeligt, at han går op i sit arbejde. Vi bruger ham igen."</blockquote>
+<div class="review-author">
+<div class="review-avatar">L</div>
+<div>
+<div class="review-name">Line Andersen</div>
+<div class="review-location">📍 Køge</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<blockquote>"Fik installeret nyt gulvvarmeanlæg i hele stueetagen. Peters Vvs var grundige, ryddede pænt op efter sig og var virkelig rare at have i huset. Klart den bedste VVS-oplevelse, jeg har haft."</blockquote>
+<div class="review-author">
+<div class="review-avatar">H</div>
+<div>
+<div class="review-name">Henrik Poulsen</div>
+<div class="review-location">📍 Greve</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+<div class="container">
+<div class="guarantee-box">
+<div class="guarantee-icon">🛡️</div>
+<div>
+<h3>Vores garanti til dig</h3>
+<p>Hos Peters Vvs giver vi garanti på alt udført arbejde. Du får altid et gratis og uforpligtende tilbud inden vi starter. Ingen skjulte gebyrer, ingen overraskelser. Er du ikke tilfreds, gør vi det om – helt enkelt. Vi vil have kunder i Ølby og på Sjælland, der anbefaler os videre, og det kræver, at vi leverer kvalitet hver eneste gang.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-grid">
+<div class="contact-info">
+<div class="section-label">Kontakt os</div>
+<h2>Få et gratis tilbud i dag</h2>
+<p>Udfyld formularen, og vi vender tilbage inden for 1 time. Eller ring direkte – vi snakker gerne om din opgave, helt uforpligtende.</p>
+<div class="contact-method">
+<div class="c-icon">📞</div>
+<div>
+<div class="c-label">Telefon</div>
+<div class="c-value"><a href="tel:+4561714003">+45 61 71 40 03</a></div>
+</div>
+</div>
+<div class="contact-method">
+<div class="c-icon">✉️</div>
+<div>
+<div class="c-label">Email</div>
+<div class="c-value"><a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></div>
+</div>
+</div>
+<div class="contact-method">
+<div class="c-icon">📍</div>
+<div>
+<div class="c-label">Område</div>
+<div class="c-value">Ølby – dækker hele Sjælland</div>
+</div>
+</div>
+<div class="contact-method">
+<div class="c-icon">⏰</div>
+<div>
+<div class="c-label">Responstid</div>
+<div class="c-value">Svar inden for 1 time</div>
+</div>
+</div>
+</div>
+<div class="form-card">
+<h3>Send en besked</h3>
+<p class="form-sub">Gratis tilbud – ingen binding – svar inden 1 time</p>
+<form action="#" method="POST">
+<div class="form-group">
+<label for="navn">Dit navn *</label>
+<input type="text" id="navn" name="navn" placeholder="Fx Anders Hansen" required>
+</div>
+<div class="form-group">
+<label for="email">Email *</label>
+<input type="email" id="email" name="email" placeholder="din@email.dk" required>
+</div>
+<div class="form-group">
+<label for="telefon">Telefon *</label>
+<input type="tel" id="telefon" name="telefon" placeholder="Dit telefonnummer" required>
+</div>
+<div class="form-group">
+<label for="besked">Beskriv din opgave</label>
+<textarea id="besked" name="besked" placeholder="Fortæl kort hvad du har brug for hjælp til..."></textarea>
+</div>
+<button type="submit" class="form-submit">Få gratis tilbud →</button>
+<p class="form-note">🔒 Vi deler aldrig dine oplysninger. Helt uforpligtende.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="cta-banner">
+<div class="container">
+<h2>Ring til Bo Petersen i dag</h2>
+<p>Din lokale VVS-mand i Ølby – klar til at hjælpe dig på hele Sjælland.</p>
+<a href="tel:+4561714003" class="btn-dark">📞 +45 61 71 40 03</a>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<p style="margin-bottom:8px"><strong style="color:var(--accent)">Peters Vvs</strong> – Bo Petersen | Ølby | Dækker hele Sjælland</p>
+<p>📞 <a href="tel:+4561714003">+45 61 71 40 03</a> &nbsp;|&nbsp; ✉️ <a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></p>
+<p style="margin-top:16px;font-size:0.8rem;opacity:0.5">© 2024 Peters Vvs – Alle rettigheder forbeholdes</p>
+</div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+<a href="tel:+4561714003">📞 Ring nu – 61 71 40 03</a>
+</div>
+
+</body>
+</html>
