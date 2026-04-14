@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overby Håndværk – Tømrer i Odense | Professionelt tømrerarbejde på Fyn</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#1a1a2e;--blue:#16213e;--accent:#e94560;--accent2:#0f3460;--gold:#f5c518;--light:#eee;--white:#fff;--gray:#a0a0b0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--dark);color:var(--light);line-height:1.7}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(22,33,62,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(233,69,96,.15);padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:70px}
+.logo{font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:.5px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--gray);font-size:.95rem;transition:color .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--white)!important;padding:10px 22px;border-radius:50px;font-weight:700;font-size:.95rem;transition:transform .3s,box-shadow .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(233,69,96,.4)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.burger span{width:25px;height:2px;background:var(--white);transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 5% 80px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--dark) 0%,var(--blue) 50%,#0a1628 100%)}
+.hero::after{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(233,69,96,.08) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(233,69,96,.12);border:1px solid rgba(233,69,96,.25);color:var(--accent);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:20px}
+.hero-badge .pulse{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:20px}
+.hero h1 .highlight{color:var(--accent);position:relative}
+.hero-sub{font-size:1.15rem;color:var(--gray);max-width:520px;margin-bottom:35px;line-height:1.8}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{background:var(--accent);color:var(--white);padding:16px 36px;border-radius:50px;font-weight:700;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:all .3s;border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(233,69,96,.35)}
+.btn-secondary{background:transparent;color:var(--white);padding:16px 36px;border-radius:50px;font-weight:700;font-size:1.05rem;border:2px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:10px;transition:all .3s;cursor:pointer}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-phone{display:flex;align-items:center;gap:14px}
+.hero-phone .icon{width:50px;height:50px;background:rgba(233,69,96,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.hero-phone .number{font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:.5px}
+.hero-phone .label{font-size:.8rem;color:var(--gray)}
+
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:40px;backdrop-filter:blur(10px)}
+.hero-card h3{color:var(--white);font-size:1.3rem;margin-bottom:6px}
+.hero-card p{color:var(--gray);font-size:.9rem;margin-bottom:25px}
+.quick-form .field{margin-bottom:16px}
+.quick-form input,.quick-form textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:var(--white);font-size:.95rem;font-family:inherit;transition:border .3s}
+.quick-form input:focus,.quick-form textarea:focus{outline:none;border-color:var(--accent)}
+.quick-form input::placeholder,.quick-form textarea::placeholder{color:var(--gray)}
+.quick-form textarea{height:80px;resize:vertical}
+.quick-form .btn-primary{width:100%;justify-content:center;padding:16px}
+.form-trust{display:flex;gap:16px;margin-top:14px;justify-content:center}
+.form-trust span{font-size:.78rem;color:var(--gray);display:flex;align-items:center;gap:4px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--blue);border-top:1px solid rgba(233,69,96,.1);border-bottom:1px solid rgba(233,69,96,.1);padding:30px 5%}
+.trust-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.trust-item .number{font-size:2rem;font-weight:900;color:var(--accent)}
+.trust-item .text{font-size:.9rem;color:var(--gray);margin-top:2px}
+
+/* SECTIONS GENERAL */
+section{padding:90px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;background:rgba(233,69,96,.1);color:var(--accent);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--white);margin-bottom:16px}
+.section-desc{color:var(--gray);max-width:600px;font-size:1.05rem;line-height:1.8}
+.section-header{margin-bottom:50px}
+
+/* SERVICES */
+.services{background:var(--dark)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:36px 30px;transition:all .4s;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(233,69,96,.3);background:rgba(233,69,96,.04)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{font-size:2.2rem;margin-bottom:18px;display:block}
+.service-card h3{font-size:1.15rem;color:var(--white);margin-bottom:10px;font-weight:700}
+.service-card p{color:var(--gray);font-size:.92rem;line-height:1.7}
+
+/* ABOUT / WHY */
+.about{background:var(--blue)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-img{background:linear-gradient(135deg,rgba(233,69,96,.15),rgba(15,52,96,.4));border-radius:24px;height:420px;display:flex;align-items:center;justify-content:center;font-size:5rem;border:1px solid rgba(255,255,255,.06)}
+.about-content .section-title{margin-bottom:20px}
+.about-content p{color:var(--gray);margin-bottom:18px;font-size:1.02rem;line-height:1.85}
+.about-list{list-style:none;margin:20px 0 30px}
+.about-list li{display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--light);font-size:1rem}
+.about-list li .check{color:var(--accent);font-weight:900;font-size:1.2rem}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--accent) 0%,#c0392b 100%);text-align:center;padding:70px 5%;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:rgba(255,255,255,.05);border-radius:50%}
+.cta-banner h2{font-size:clamp(1.6rem,3vw,2.4rem);color:var(--white);font-weight:900;margin-bottom:12px;position:relative;z-index:2}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:1.1rem;margin-bottom:30px;position:relative;z-index:2}
+.cta-banner .btn-white{background:var(--white);color:var(--accent);padding:16px 40px;border-radius:50px;font-weight:800;font-size:1.1rem;display:inline-flex;align-items:center;gap:10px;transition:all .3s;border:none;cursor:pointer;position:relative;z-index:2}
+.cta-banner .btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+
+/* REVIEWS */
+.reviews{background:var(--dark)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.review-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px}
+.review-stars{color:var(--gold);font-size:1.1rem;margin-bottom:14px;letter-spacing:2px}
+.review-card blockquote{color:var(--light);font-size:.98rem;line-height:1.8;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;font-size:1rem}
+.review-info .name{color:var(--white);font-weight:700;font-size:.95rem}
+.review-info .loc{color:var(--gray);font-size:.82rem}
+
+/* PROCESS */
+.process{background:var(--blue)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;counter-reset:step}
+.step{text-align:center;position:relative}
+.step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:60px;height:60px;background:rgba(233,69,96,.12);border:2px solid var(--accent);border-radius:50%;color:var(--accent);font-size:1.4rem;font-weight:900;margin:0 auto 18px}
+.step h4{color:var(--white);font-size:1.05rem;margin-bottom:8px}
+.step p{color:var(--gray);font-size:.88rem;line-height:1.7}
+
+/* CONTACT */
+.contact{background:var(--dark)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-info h3{color:var(--white);font-size:1.5rem;margin-bottom:20px}
+.contact-info p{color:var(--gray);font-size:1rem;margin-bottom:25px;line-height:1.8}
+.contact-detail{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding:18px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;transition:border .3s}
+.contact-detail:hover{border-color:rgba(233,69,96,.3)}
+.contact-detail .cd-icon{width:48px;height:48px;background:rgba(233,69,96,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.contact-detail .cd-label{font-size:.8rem;color:var(--gray)}
+.contact-detail .cd-value{font-size:1.05rem;color:var(--white);font-weight:700}
+.contact-guarantee{margin-top:30px;padding:20px 24px;background:rgba(233,69,96,.08);border:1px solid rgba(233,69,96,.2);border-radius:16px;display:flex;align-items:center;gap:12px}
+.contact-guarantee .cg-icon{font-size:1.5rem}
+.contact-guarantee p{color:var(--light);font-size:.92rem}
+.contact-guarantee strong{color:var(--accent)}
+
+.contact-form{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:40px}
+.contact-form h3{color:var(--white);font-size:1.3rem;margin-bottom:8px}
+.contact-form>p{color:var(--gray);font-size:.9rem;margin-bottom:28px}
+.cf-field{margin-bottom:18px}
+.cf-field label{display:block;color:var(--gray);font-size:.85rem;margin-bottom:6px;font-weight:600}
+.cf-field input,.cf-field textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:var(--white);font-size:.95rem;font-family:inherit;transition:border .3s}
+.cf-field input:focus,.cf-field textarea:focus{outline:none;border-color:var(--accent)}
+.cf-field textarea{height:110px;resize:vertical}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-form .btn-primary{width:100%;justify-content:center;padding:18px;font-size:1.1rem;margin-top:6px}
+
+/* FOOTER */
+footer{background:rgba(10,10,20,.6);border-top:1px solid rgba(255,255,255,.06);padding:50px 5% 30px;text-align:center}
+footer .f-logo{font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:10px}
+footer .f-logo span{color:var(--accent)}
+footer p{color:var(--gray);font-size:.88rem;margin-bottom:6px}
+footer .f-copy{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);font-size:.82rem;color:var(--gray)}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--accent);color:var(--white);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 30px rgba(233,69,96,.4);transition:transform .3s;animation:float-bounce 2s ease-in-out infinite}
+.float-cta:hover{transform:scale(1.1)}
+@keyframes float-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* MOBILE */
+@media(max-width:960px){
+.nav-links{display:none}
+.burger{display:flex}
+.hero-inner{grid-template-columns:1fr}
+.hero-card{margin-top:20px}
+.trust-inner{grid-template-columns:repeat(2,1fr)}
+.services-grid{grid-template-columns:1fr 1fr}
+.about-grid{grid-template-columns:1fr}
+.about-img{height:280px}
+.reviews-grid{grid-template-columns:1fr}
+.process-steps{grid-template-columns:1fr 1fr}
+.contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.hero{padding:100px 5% 60px}
+.hero h1{font-size:1.9rem}
+.hero-btns{flex-direction:column}
+.btn-primary,.btn-secondary{width:100%;justify-content:center}
+.trust-inner{grid-template-columns:1fr 1fr}
+.services-grid{grid-template-columns:1fr}
+.process-steps{grid-template-columns:1fr}
+.cf-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<div class="logo">Overby <span>Håndværk</span></div>
+<div class="nav-links">
+<a href="#services">Ydelser</a>
+<a href="#about">Om os</a>
+<a href="#reviews">Anmeldelser</a>
+<a href="#contact">Kontakt</a>
+<a href="tel:+4561714003" class="nav-cta">📞 Ring nu</a>
+</div>
+<button class="burger" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-text">
+<div class="hero-badge"><span class="pulse"></span> Ledige tider i denne uge</div>
+<h1>Din pålidelige <span class="highlight">tømrer i Odense</span> – kvalitet du kan stole på</h1>
+<p class="hero-sub">Overby Håndværk er dit lokale tømrerfirma i Odense. Vi leverer solidt håndværk til private og erhverv – fra tagkonstruktioner til køkkenmontering – på hele Fyn.</p>
+<div class="hero-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring nu – +45 61 71 40 03</a>
+<a href="#contact" class="btn-secondary">✉ Få gratis tilbud</a>
+</div>
+<div class="hero-phone">
+<div class="icon">⚡</div>
+<div>
+<div class="label">Vi svarer inden for 1 time</div>
+<a href="tel:+4561714003" class="number">+45 61 71 40 03</a>
+</div>
+</div>
+</div>
+<div class="hero-card">
+<h3>Få et gratis tilbud nu</h3>
+<p>Udfyld formularen – vi vender tilbage hurtigt</p>
+<form class="quick-form" action="mailto:dbobionu@gmail.com" method="post" enctype="text/plain">
+<div class="field"><input type="text" name="navn" placeholder="Dit navn" required></div>
+<div class="field"><input type="tel" name="telefon" placeholder="Telefonnummer" required></div>
+<div class="field"><input type="email" name="email" placeholder="Email" required></div>
+<div class="field"><textarea name="besked" placeholder="Beskriv kort din opgave..."></textarea></div>
+<button type="submit" class="btn-primary">Få gratis tilbud →</button>
+</form>
+<div class="form-trust">
+<span>🔒 Ingen binding</span>
+<span>✅ 100% gratis</span>
+<span>⚡ Svar inden 1 time</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+<div class="trust-inner">
+<div class="trust-item">
+<div class="number">⭐ 5/5</div>
+<div class="text">Stjerner fra kunder i Odense</div>
+</div>
+<div class="trust-item">
+<div class="number">20+</div>
+<div class="text">Års erfaring som tømrer</div>
+</div>
+<div class="trust-item">
+<div class="number">500+</div>
+<div class="text">Opgaver udført på Fyn</div>
+</div>
+<div class="trust-item">
+<div class="number">100%</div>
+<div class="text">Gratis & uforpligtende tilbud</div>
+</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="section-inner">
+<div class="section-header">
+<span class="section-tag">Vores ydelser</span>
+<h2 class="section-title">Professionelt tømrerarbejde i Odense og på Fyn</h2>
+<p class="section-desc">Vi løser alle typer tømreropgaver – store som små. Her er et udpluk af det, vi hjælper vores kunder i Odense med hver dag.</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<span class="service-icon">🏠</span>
+<h3>Tagkonstruktion & tagrenovering</h3>
+<p>Nyt tag, reparation af spær, udskiftning af tagbrædder og undertag. Vi sikrer dit hjem i Odense mod vind og vejr.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🚪</span>
+<h3>Vinduer & døre</h3>
+<p>Montering og udskiftning af vinduer og døre. Vi rådgiver om energibesparende løsninger der passer til dit hus.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🍳</span>
+<h3>Køkken- & badmontering</h3>
+<p>Opsætning af køkkener og badeværelser. Vi sørger for præcise tilpasninger og et flot slutresultat.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🏗️</span>
+<h3>Tilbygning & carport</h3>
+<p>Drømmer du om mere plads? Vi bygger tilbygninger, udestuer og carporte til familier i Odense og omegn.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🪵</span>
+<h3>Trægulve & terrasser</h3>
+<p>Lægning af trægulve, terrassebrædder og altaner. Kvalitetstræ og omhyggelig udførelse er vores kendetegn.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🔨</span>
+<h3>Reparation & vedligehold</h3>
+<p>Mindre tømrerreparationer, vedligehold af træværk og generelt snedkerarbejde. Ingen opgave er for lille.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+<h2>Har du en tømreropgave i Odense? Vi er klar til at hjælpe</h2>
+<p>Ring i dag og få en uforpligtende snak om dit projekt – vi giver altid et fast tilbud først</p>
+<a href="tel:+4561714003" class="btn-white">📞 Ring +45 61 71 40 03</a>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="section-inner">
+<div class="about-grid">
+<div class="about-img">🪚</div>
+<div class="about-content">
+<span class="section-tag">Om Overby Håndværk</span>
+<h2 class="section-title">Lokalt tømrerfirma med rødder i Odense</h2>
+<p>Overby Håndværk er drevet af Lars Overby – en erfaren tømrer med stor passion for solidt håndværk. Vi holder til i Odense og dækker store dele af Fyn.</p>
+<p>For os handler det ikke bare om at slå søm i – det handler om at levere et resultat, du bliver glad for i mange år. Vi tager os tid til at forstå din opgave, og vi giver altid en ærlig vurdering af, hvad der skal til.</p>
+<ul class="about-list">
+<li><span class="check">✓</span> Uddannet tømrer med mange års erfaring</li>
+<li><span class="check">✓</span> Lokalt forankret i Odense – vi kender området</li>
+<li><span class="check">✓</span> Rydder altid op efter os</li>
+<li><span class="check">✓</span> Fast pris – ingen ubehagelige overraskelser</li>
+<li><span class="check">✓</span> Dækker hele Fyn</li>
+</ul>
+<a href="#contact" class="btn-primary">Kontakt os i dag →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+<div class="section-inner">
+<div class="section-header">
+<span class="section-tag">Sådan foregår det</span>
+<h2 class="section-title">Fra første opkald til færdigt resultat</h2>
+<p class="section-desc">Vi gør det nemt for dig. Fire simple trin – og så klarer vi resten.</p>
+</div>
+<div class="process-steps">
+<div class="step">
+<h4>Kontakt os</h4>
+<p>Ring eller udfyld formularen. Vi svarer inden for 1 time i Odense-området.</p>
+</div>
+<div class="step">
+<h4>Gratis tilbud</h4>
+<p>Vi kommer forbi, ser på opgaven og giver dig et fast tilbud – helt gratis og uforpligtende.</p>
+</div>
+<div class="step">
+<h4>Vi udfører arbejdet</h4>
+<p>Professionelt tømrerarbejde med kvalitetsmaterialer. Vi overholder aftaler og tidsplaner.</p>
+</div>
+<div class="step">
+<h4>Du er tilfreds</h4>
+<p>Vi afleverer først, når du er 100% tilfreds. Sådan har vi altid gjort det.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<div class="section-inner">
+<div class="section-header">
+<span class="section-tag">Kundernes ord</span>
+<h2 class="section-title">Det siger vores kunder i Odense</h2>
+<p class="section-desc">Vi lader resultaterne tale for sig selv. Her er et udpluk af tilbagemeldinger fra tilfredse kunder.</p>
+</div>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<blockquote>"Vi fik bygget ny carport af Overby Håndværk, og resultatet er fantastisk. Lars var grundig, holdt tidsplanen og prisen var præcis som aftalt. Kan klart anbefales til alle i Odense."</blockquote>
+<div class="review-author">
+<div class="review-avatar">MH</div>
+<div class="review-info">
+<div class="name">Morten Hansen</div>
+<div class="loc">Odense SØ</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<blockquote>"Vi skulle have skiftet alle vinduer i vores hus fra 60'erne. Lars rådgav os ærligt og udførte arbejdet hurtigt og pænt. Vores varmeregning er allerede faldet. Tak for godt håndværk!"</blockquote>
+<div class="review-author">
+<div class="review-avatar">LN</div>
+<div class="review-info">
+<div class="name">Line Nielsen</div>
+<div class="loc">Odense C</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<blockquote>"Brugte Overby Håndværk til en tilbygning. Fra start til slut var kommunikationen perfekt. Arbejdet var rent og professionelt. Ville ikke vælge nogen anden tømrer på Fyn."</blockquote>
+<div class="review-author">
+<div class="review-avatar">PJ</div>
+<div class="review-info">
+<div class="name">Peter Jørgensen</div>
+<div class="loc">Odense NV</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER 2 -->
+<div class="cta-banner">
+<h2>Klar til at komme i gang med dit projekt?</h2>
+<p>Vi har ledige tider nu – ring og få en aftale allerede i denne uge</p>
+<a href="tel:+4561714003" class="btn-white">📞 +45 61 71 40 03 – Ring nu</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="section-inner">
+<div class="section-header">
+<span class="section-tag">Kontakt</span>
+<h2 class="section-title">Få et gratis tilbud på tømrerarbejde i Odense</h2>
+<p class="section-desc">Uanset om det er en lille reparation eller en stor ombygning – vi er klar til at hjælpe. Kontakt os i dag.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<h3>Overby Håndværk</h3>
+<p>Vi er lokale tømrere i Odense og dækker store dele af Fyn. Ring eller skriv til os – vi vender altid hurtigt tilbage.</p>
+
+<a href="tel:+4561714003" class="contact-detail">
+<div class="cd-icon">📞</div>
+<div>
+<div class="cd-label">Ring direkte</div>
+<div class="cd-value">+45 61 71 40 03</div>
+</div>
+</a>
+
+<a href="mailto:dbobionu@gmail.com" class="contact-detail">
+<div class="cd-icon">✉️</div>
+<div>
+<div class="cd-label">Send en email</div>
+<div class="cd-value">dbobionu@gmail.com</div>
+</div>
+</a>
+
+<div class="contact-detail">
+<div class="cd-icon">📍</div>
+<div>
+<div class="cd-label">Område</div>
+<div class="cd-value">Odense & hele Fyn</div>
+</div>
+</div>
+
+<div class="contact-detail">
+<div class="cd-icon">⏰</div>
+<div>
+<div class="cd-label">Svartid</div>
+<div class="cd-value">Inden for 1 time</div>
+</div>
+</div>
+
+<div class="contact-guarantee">
+<span class="cg-icon">🛡️</span>
+<p><strong>Garanti:</strong> Du får altid et gratis og uforpligtende tilbud. Ingen skjulte gebyrer – ingen binding.</p>
+</div>
+</div>
+
+<div class="contact-form">
+<h3>Send en besked</h3>
+<p>Vi vender tilbage inden for 1 time i hverdage</p>
+<form action="mailto:dbobionu@gmail.com" method="post" enctype="text/plain">
+<div class="cf-row">
+<div class="cf-field">
+<label for="c-navn">Dit navn *</label>
+<input type="text" id="c-navn" name="navn" placeholder="Fx Lars Jensen" required>
+</div>
+<div class="cf-field">
+<label for="c-tlf">Telefon *</label>
+<input type="tel" id="c-tlf" name="telefon" placeholder="Fx 12 34 56 78" required>
+</div>
+</div>
+<div class="cf-field">
+<label for="c-email">Email *</label>
+<input type="email" id="c-email" name="email" placeholder="din@email.dk" required>
+</div>
+<div class="cf-field">
+<label for="c-besked">Beskriv din opgave</label>
+<textarea id="c-besked" name="besked" placeholder="Fortæl lidt om hvad du har brug for hjælp til – så giver vi et tilbud..."></textarea>
+</div>
+<button type="submit" class="btn-primary">Få gratis tilbud →</button>
+</form>
+<div class="form-trust" style="margin-top:16px">
+<span>🔒 Ingen binding</span>
+<span>✅ Gratis tilbud</span>
+<span>⚡ Hurtigt svar</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="f-logo">Overby <span>Håndværk</span></div>
+<p>Professionelt tømrerarbejde i Odense og på hele Fyn</p>
+<p>📞 <a href="tel:+4561714003" style="color:var(--accent)">+45 61 71 40 03</a> &nbsp;|&nbsp; ✉️ <a href="mailto:dbobionu@gmail.com" style="color:var(--accent)">dbobionu@gmail.com</a></p>
+<div class="f-copy">© 2024 Overby Håndværk – Alle rettigheder forbeholdes | Tømrer i Odense</div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="tel:+4561714003" class="float-cta" title="Ring til os nu">📞</a>
+
+</body>
+</html>
