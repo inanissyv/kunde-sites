@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>asdasdsad – asddadaasd i Brøndby | Få Gratis Tilbud</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--primary:#c8a456;--primary-dark:#a8883e;--bg:#0e0e0e;--bg2:#1a1a1a;--bg3:#232323;--text:#e8e0d0;--text-light:#b8b0a0;--white:#fff;--accent:#d4af61;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+
+/* NAV */
+nav{background:rgba(14,14,14,0.97);position:fixed;top:0;width:100%;z-index:1000;border-bottom:1px solid #2a2a2a;backdrop-filter:blur(10px);}
+nav .container{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;}
+.logo{font-size:1.4rem;font-weight:700;color:var(--primary);letter-spacing:1px;}
+.logo span{color:var(--text-light);font-weight:400;font-size:0.8rem;display:block;letter-spacing:0;}
+nav ul{list-style:none;display:flex;gap:25px;}
+nav ul li a{color:var(--text-light);font-size:0.9rem;transition:0.3s;position:relative;}
+nav ul li a:hover{color:var(--primary);}
+.nav-cta{background:var(--primary);color:#000!important;padding:10px 22px;border-radius:6px;font-weight:700;transition:0.3s;}
+.nav-cta:hover{background:var(--accent);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+.hamburger span{width:25px;height:2px;background:var(--primary);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;background:linear-gradient(135deg,#0e0e0e 0%,#1a1510 50%,#0e0e0e 100%);}
+.hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 70% 50%,rgba(200,164,86,0.06) 0%,transparent 70%);pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,164,86,0.1);border:1px solid rgba(200,164,86,0.2);padding:8px 18px;border-radius:50px;font-size:0.85rem;color:var(--primary);margin-bottom:25px;}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-size:3.2rem;font-weight:800;line-height:1.1;margin-bottom:20px;color:var(--white);}
+.hero h1 .highlight{color:var(--primary);display:block;}
+.hero-sub{font-size:1.15rem;color:var(--text-light);margin-bottom:35px;max-width:500px;line-height:1.7;}
+.hero-btns{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-primary{background:var(--primary);color:#000;padding:16px 36px;border-radius:8px;font-weight:700;font-size:1rem;transition:0.3s;display:inline-flex;align-items:center;gap:10px;border:2px solid var(--primary);}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,164,86,0.3);}
+.btn-secondary{background:transparent;color:var(--primary);padding:16px 36px;border-radius:8px;font-weight:700;font-size:1rem;border:2px solid rgba(200,164,86,0.4);transition:0.3s;display:inline-flex;align-items:center;gap:10px;}
+.btn-secondary:hover{border-color:var(--primary);background:rgba(200,164,86,0.05);transform:translateY(-2px);}
+.hero-phone{font-size:1.5rem;font-weight:700;color:var(--white);}
+.hero-phone a{color:var(--primary);transition:0.3s;}
+.hero-phone a:hover{text-decoration:underline;}
+.hero-phone small{display:block;font-size:0.8rem;color:var(--text-light);font-weight:400;margin-top:3px;}
+.hero-right{position:relative;}
+.hero-card{background:var(--bg2);border:1px solid #2a2a2a;border-radius:16px;padding:45px;position:relative;overflow:hidden;}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));}
+.hero-card h3{color:var(--white);font-size:1.3rem;margin-bottom:8px;}
+.hero-card p{color:var(--text-light);font-size:0.9rem;margin-bottom:25px;}
+.mini-form input,.mini-form textarea{width:100%;padding:14px 18px;background:var(--bg);border:1px solid #333;border-radius:8px;color:var(--text);font-size:0.95rem;margin-bottom:12px;transition:0.3s;font-family:inherit;}
+.mini-form input:focus,.mini-form textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(200,164,86,0.1);}
+.mini-form textarea{height:80px;resize:vertical;}
+.mini-form button{width:100%;padding:16px;background:var(--primary);color:#000;border:none;border-radius:8px;font-weight:700;font-size:1.05rem;cursor:pointer;transition:0.3s;}
+.mini-form button:hover{background:var(--accent);transform:translateY(-1px);}
+.form-note{text-align:center;font-size:0.8rem;color:var(--text-light);margin-top:10px;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--bg2);border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;padding:30px 0;}
+.trust-items{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;}
+.trust-item{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.trust-icon{font-size:2rem;margin-bottom:5px;}
+.trust-item strong{color:var(--white);font-size:1.1rem;}
+.trust-item span{color:var(--text-light);font-size:0.85rem;}
+
+/* URGENCY */
+.urgency-strip{background:linear-gradient(90deg,rgba(200,164,86,0.15),rgba(200,164,86,0.05));border-left:4px solid var(--primary);padding:20px 30px;margin:0;display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;}
+.urgency-strip p{font-size:1rem;color:var(--text);}
+.urgency-strip strong{color:var(--primary);}
+
+/* SERVICES */
+.services{padding:100px 0;background:var(--bg);}
+.section-label{display:inline-block;color:var(--primary);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;}
+.section-title{font-size:2.5rem;font-weight:800;color:var(--white);margin-bottom:15px;}
+.section-subtitle{color:var(--text-light);font-size:1.05rem;max-width:600px;margin-bottom:50px;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.service-card{background:var(--bg2);border:1px solid #2a2a2a;border-radius:14px;padding:35px 30px;transition:0.4s;position:relative;overflow:hidden;}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--primary);transform:scaleX(0);transition:0.4s;}
+.service-card:hover{transform:translateY(-5px);border-color:rgba(200,164,86,0.3);box-shadow:0 15px 40px rgba(0,0,0,0.3);}
+.service-card:hover::after{transform:scaleX(1);}
+.service-icon{font-size:2.5rem;margin-bottom:18px;display:block;}
+.service-card h3{color:var(--white);font-size:1.2rem;margin-bottom:10px;}
+.service-card p{color:var(--text-light);font-size:0.9rem;line-height:1.6;}
+
+/* ABOUT */
+.about{padding:100px 0;background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-visual{position:relative;}
+.about-box{background:var(--bg3);border:1px solid #2a2a2a;border-radius:16px;padding:50px;position:relative;}
+.about-box::before{content:'';position:absolute;top:20px;left:20px;right:-10px;bottom:-10px;border:2px solid rgba(200,164,86,0.15);border-radius:16px;z-index:0;}
+.about-stat{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;}
+.stat-item{background:var(--bg);border-radius:10px;padding:20px;text-align:center;}
+.stat-item .num{font-size:2rem;font-weight:800;color:var(--primary);display:block;}
+.stat-item .label{font-size:0.8rem;color:var(--text-light);}
+.about-content h2{font-size:2.2rem;font-weight:800;color:var(--white);margin-bottom:20px;line-height:1.2;}
+.about-content p{color:var(--text-light);margin-bottom:18px;line-height:1.8;}
+.about-checks{list-style:none;margin:25px 0;}
+.about-checks li{padding:8px 0;color:var(--text);display:flex;align-items:center;gap:12px;}
+.about-checks li::before{content:'✓';color:var(--primary);font-weight:700;font-size:1.1rem;}
+
+/* REVIEWS */
+.reviews{padding:100px 0;background:var(--bg);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:50px;}
+.review-card{background:var(--bg2);border:1px solid #2a2a2a;border-radius:14px;padding:35px;transition:0.3s;}
+.review-card:hover{border-color:rgba(200,164,86,0.3);transform:translateY(-3px);}
+.review-stars{color:var(--primary);font-size:1.2rem;margin-bottom:15px;letter-spacing:2px;}
+.review-text{color:var(--text-light);font-size:0.95rem;line-height:1.7;margin-bottom:20px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:12px;}
+.review-avatar{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:1.1rem;}
+.review-name{color:var(--white);font-weight:600;font-size:0.95rem;}
+.review-loc{color:var(--text-light);font-size:0.8rem;}
+
+/* GUARANTEE */
+.guarantee{padding:60px 0;background:linear-gradient(135deg,rgba(200,164,86,0.08),rgba(200,164,86,0.02));border-top:1px solid rgba(200,164,86,0.1);border-bottom:1px solid rgba(200,164,86,0.1);}
+.guarantee-inner{display:flex;align-items:center;gap:30px;justify-content:center;flex-wrap:wrap;text-align:center;}
+.guarantee-icon{font-size:3.5rem;}
+.guarantee-text h3{color:var(--white);font-size:1.4rem;margin-bottom:5px;}
+.guarantee-text p{color:var(--text-light);font-size:0.95rem;}
+
+/* CONTACT */
+.contact{padding:100px 0;background:var(--bg2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.contact-info h2{font-size:2.2rem;font-weight:800;color:var(--white);margin-bottom:15px;}
+.contact-info>p{color:var(--text-light);line-height:1.7;margin-bottom:35px;}
+.contact-detail{display:flex;align-items:flex-start;gap:18px;margin-bottom:28px;padding:20px;background:var(--bg);border-radius:12px;border:1px solid #2a2a2a;transition:0.3s;}
+.contact-detail:hover{border-color:rgba(200,164,86,0.3);}
+.contact-detail-icon{font-size:1.8rem;flex-shrink:0;}
+.contact-detail strong{color:var(--white);display:block;margin-bottom:3px;}
+.contact-detail span{color:var(--primary);font-size:1.05rem;}
+.contact-detail small{color:var(--text-light);font-size:0.8rem;display:block;margin-top:2px;}
+.contact-form{background:var(--bg);border:1px solid #2a2a2a;border-radius:16px;padding:45px;position:relative;overflow:hidden;}
+.contact-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));}
+.contact-form h3{color:var(--white);font-size:1.4rem;margin-bottom:25px;}
+.form-group{margin-bottom:15px;}
+.form-group label{display:block;color:var(--text-light);font-size:0.85rem;margin-bottom:6px;font-weight:500;}
+.form-group input,.form-group textarea{width:100%;padding:14px 18px;background:var(--bg2);border:1px solid #333;border-radius:8px;color:var(--text);font-size:0.95rem;transition:0.3s;font-family:inherit;}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(200,164,86,0.1);}
+.form-group textarea{height:110px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.submit-btn{width:100%;padding:18px;background:var(--primary);color:#000;border:none;border-radius:8px;font-weight:700;font-size:1.1rem;cursor:pointer;transition:0.3s;margin-top:5px;}
+.submit-btn:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,164,86,0.3);}
+.form-footer{text-align:center;margin-top:12px;font-size:0.8rem;color:var(--text-light);}
+
+/* CTA SECTION */
+.cta-section{padding:80px 0;background:linear-gradient(135deg,#1a1510,#0e0e0e);text-align:center;position:relative;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,164,86,0.08),transparent 70%);}
+.cta-section h2{font-size:2.5rem;font-weight:800;color:var(--white);margin-bottom:12px;position:relative;}
+.cta-section p{color:var(--text-light);font-size:1.1rem;margin-bottom:35px;position:relative;}
+.cta-section .hero-btns{justify-content:center;position:relative;}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid #2a2a2a;padding:40px 0 25px;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-left .logo{font-size:1.2rem;}
+.footer-left p{color:var(--text-light);font-size:0.85rem;margin-top:5px;}
+.footer-right{text-align:right;}
+.footer-right a{color:var(--primary);font-weight:600;}
+.footer-bottom{text-align:center;margin-top:25px;padding-top:20px;border-top:1px solid #1a1a1a;font-size:0.8rem;color:#555;}
+
+/* MOBILE */
+@media(max-width:900px){
+nav ul{display:none;}
+.hamburger{display:flex;}
+.hero-grid{grid-template-columns:1fr;gap:40px;}
+.hero h1{font-size:2.3rem;}
+.hero-right{order:-1;}
+.trust-items{grid-template-columns:repeat(2,1fr);}
+.services-grid{grid-template-columns:1fr;}
+.about-grid{grid-template-columns:1fr;}
+.reviews-grid{grid-template-columns:1fr;}
+.contact-grid{grid-template-columns:1fr;}
+.form-row{grid-template-columns:1fr;}
+.footer-inner{flex-direction:column;text-align:center;}
+.footer-right{text-align:center;}
+.cta-section h2{font-size:1.8rem;}
+.section-title{font-size:2rem;}
+}
+@media(max-width:500px){
+.hero h1{font-size:1.9rem;}
+.hero-btns{flex-direction:column;}
+.btn-primary,.btn-secondary{text-align:center;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="container">
+<div class="logo">asdasdsad<span>Professionel asddadaasd i Brøndby</span></div>
+<ul>
+<li><a href="#services">Ydelser</a></li>
+<li><a href="#about">Om os</a></li>
+<li><a href="#reviews">Anmeldelser</a></li>
+<li><a href="#contact">Kontakt</a></li>
+<li><a href="tel:+4561714003" class="nav-cta">Ring: +4561714003</a></li>
+</ul>
+<div class="hamburger" onclick="document.querySelector('nav ul').style.display=document.querySelector('nav ul').style.display==='flex'?'none':'flex';">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-left">
+<div class="hero-badge">● Vi har ledige tider i denne uge</div>
+<h1>Professionel asddadaasd <span class="highlight">i Brøndby</span></h1>
+<p class="hero-sub">Hos asdasdsad leverer vi asddadaasd af højeste kvalitet til private og erhverv i Brøndby og omegn. Få et uforpligtende tilbud i dag – vi svarer inden for 1 time.</p>
+<div class="hero-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring nu: +4561714003</a>
+<a href="#contact" class="btn-secondary">✉ Få gratis tilbud</a>
+</div>
+<div class="hero-phone">
+<small>Åben for henvendelser – vi vender hurtigt tilbage</small>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-card">
+<h3>Få et gratis tilbud nu</h3>
+<p>Udfyld formularen – vi svarer inden for 1 time</p>
+<form class="mini-form" action="#" method="POST">
+<input type="text" name="navn" placeholder="Dit navn" required>
+<input type="tel" name="telefon" placeholder="Dit telefonnummer" required>
+<input type="email" name="email" placeholder="Din email">
+<textarea name="besked" placeholder="Beskriv kort din opgave..."></textarea>
+<button type="submit">Få gratis tilbud →</button>
+</form>
+<p class="form-note">🔒 Ingen binding – 100% uforpligtende</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+<div class="container">
+<div class="trust-items">
+<div class="trust-item">
+<span class="trust-icon">⭐</span>
+<strong>5-stjernet service</strong>
+<span>Baseret på kundetilfredshed</span>
+</div>
+<div class="trust-item">
+<span class="trust-icon">🏆</span>
+<strong>Erfaren virksomhed</strong>
+<span>Mange tilfredse kunder i Brøndby</span>
+</div>
+<div class="trust-item">
+<span class="trust-icon">💰</span>
+<strong>Gratis tilbud</strong>
+<span>Ingen skjulte omkostninger</span>
+</div>
+<div class="trust-item">
+<span class="trust-icon">⚡</span>
+<strong>Hurtig respons</strong>
+<span>Vi svarer inden for 1 time</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- URGENCY -->
+<div class="urgency-strip">
+<p>🔥 <strong>Få pladser tilbage i denne måned</strong> – kontakt os i dag og få dit gratis tilbud inden for 1 time.</p>
+<a href="tel:+4561714003" class="btn-primary" style="padding:12px 25px;font-size:0.9rem;">Ring nu</a>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<span class="section-label">Vores ydelser</span>
+<h2 class="section-title">asddadaasd i Brøndby</h2>
+<p class="section-subtitle">Vi tilbyder et bredt udvalg af løsninger inden for asddadaasd – tilpasset dine behov og budget.</p>
+<div class="services-grid">
+<div class="service-card">
+<span class="service-icon">🔧</span>
+<h3>Rådgivning og planlægning</h3>
+<p>Vi hjælper dig med professionel rådgivning, så du får den bedste løsning inden for asddadaasd i Brøndby.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🏠</span>
+<h3>asddadaasd til private</h3>
+<p>Uanset om du er boligejer i Brøndby eller omegn – vi leverer kvalitetsarbejde til en fair pris.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🏢</span>
+<h3>asddadaasd til erhverv</h3>
+<p>Vi samarbejder med erhvervskunder i Brøndby og sikrer professionel udførelse og overholdelse af deadlines.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">📋</span>
+<h3>Tilbud og opmåling</h3>
+<p>Vi kommer forbi i Brøndby-området, opmåler opgaven og giver dig et detaljeret og uforpligtende tilbud.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">✅</span>
+<h3>Kvalitetssikring</h3>
+<p>Vi går aldrig på kompromis med kvaliteten. Hvert projekt afsluttes med grundig gennemgang og godkendelse.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🤝</span>
+<h3>Personlig service</h3>
+<p>Hos asdasdsad får du én fast kontaktperson, som kender dit projekt fra start til slut.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="container">
+<div class="about-grid">
+<div class="about-visual">
+<div class="about-box">
+<div style="font-size:4rem;text-align:center;margin-bottom:20px;">🏗️</div>
+<p style="text-align:center;color:var(--text-light);font-size:1rem;">Lokal virksomhed i Brøndby<br><strong style="color:var(--primary);font-size:1.3rem;">asdasdsad</strong></p>
+<div class="about-stat">
+<div class="stat-item">
+<span class="num">100+</span>
+<span class="label">Udførte opgaver</span>
+</div>
+<div class="stat-item">
+<span class="num">5★</span>
+<span class="label">Kundetilfredshed</span>
+</div>
+<div class="stat-item">
+<span class="num">Brøndby</span>
+<span class="label">Lokalt forankret</span>
+</div>
+<div class="stat-item">
+<span class="num">1 time</span>
+<span class="label">Svartid på tilbud</span>
+</div>
+</div>
+</div>
+</div>
+<div class="about-content">
+<span class="section-label">Om asdasdsad</span>
+<h2>Din lokale specialist i asddadaasd i Brøndby</h2>
+<p>asdasdsad er en lokal virksomhed i Brøndby, drevet af dasdd. Vi brænder for at levere asddadaasd i høj kvalitet – og vi gør det med fokus på dig som kunde.</p>
+<p>Vi kender Brøndby og de lokale forhold, og vi ved hvad der skal til for at levere et resultat, du bliver glad for. Hos os får du altid en ærlig snak, et fair tilbud og et arbejde, der holder.</p>
+<ul class="about-checks">
+<li>Lokal virksomhed – vi kender Brøndby</li>
+<li>Altid gratis og uforpligtende tilbud</li>
+<li>Personlig kontakt fra start til slut</li>
+<li>Vi rydder op efter os</li>
+<li>Garanti på udført arbejde</li>
+</ul>
+<a href="tel:+4561714003" class="btn-primary">Ring til dasdd: +4561714003</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<div class="container">
+<div style="text-align:center;">
+<span class="section-label">Kundeanmeldelser</span>
+<h2 class="section-title">Det siger vores kunder i Brøndby</h2>
+<p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Vi er stolte over den tillid, vores kunder viser os. Her er et udpluk af deres oplevelser.</p>
+</div>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Vi brugte asdasdsad til asddadaasd, og vi er virkelig tilfredse. dasdd var professionel, kom til tiden og leverede et flot resultat. Kan varmt anbefales til alle i Brøndby."</p>
+<div class="review-author">
+<div class="review-avatar">M</div>
+<div>
+<div class="review-name">Michael T.</div>
+<div class="review-loc">Brøndby</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Fantastisk service fra start til slut. Vi fik et hurtigt tilbud, og arbejdet blev udført præcis som aftalt. Det er rart med en lokal virksomhed i Brøndby, man kan stole på."</p>
+<div class="review-author">
+<div class="review-avatar">L</div>
+<div>
+<div class="review-name">Louise H.</div>
+<div class="review-loc">Brøndby</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Jeg kontaktede asdasdsad efter en anbefaling, og jeg er glad for at jeg gjorde det. Godt håndværk, fair pris og en rigtig behagelig oplevelse. De kommer helt sikkert igen."</p>
+<div class="review-author">
+<div class="review-avatar">P</div>
+<div>
+<div class="review-name">Peter K.</div>
+<div class="review-loc">Brøndby</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+<div class="container">
+<div class="guarantee-inner">
+<div class="guarantee-icon">🛡️</div>
+<div class="guarantee-text">
+<h3>Vores garanti til dig</h3>
+<p>Gratis tilbud – ingen binding – garanti på udført arbejde. Vi er ikke tilfredse, før du er.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+<div class="container">
+<h2>Klar til at komme i gang?</h2>
+<p>Kontakt asdasdsad i dag – og få et gratis tilbud på asddadaasd i Brøndby.</p>
+<div class="hero-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring: +4561714003</a>
+<a href="#contact" class="btn-secondary">✉ Send en besked</a>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-grid">
+<div class="contact-info">
+<span class="section-label">Kontakt os</span>
+<h2>Få dit gratis tilbud på asddadaasd i Brøndby</h2>
+<p>Udfyld formularen, ring eller send en email – vi svarer hurtigt og giver dig et uforpligtende tilbud. Vi ser frem til at høre fra dig.</p>
+
+<div class="contact-detail">
+<span class="contact-detail-icon">📞</span>
+<div>
+<strong>Telefon</strong>
+<span><a href="tel:+4561714003">+4561714003</a></span>
+<small>Vi svarer inden for 1 time</small>
+</div>
+</div>
+<div class="contact-detail">
+<span class="contact-detail-icon">✉️</span>
+<div>
+<strong>Email</strong>
+<span><a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></span>
+<small>Skriv til os når som helst</small>
+</div>
+</div>
+<div class="contact-detail">
+<span class="contact-detail-icon">📍</span>
+<div>
+<strong>Område</strong>
+<span>Brøndby og omegn</span>
+<small>Lokal virksomhed – vi kender området</small>
+</div>
+</div>
+<div class="contact-detail">
+<span class="contact-detail-icon">👤</span>
+<div>
+<strong>Kontaktperson</strong>
+<span>dasdd</span>
+<small>Ejer af asdasdsad</small>
+</div>
+</div>
+</div>
+
+<div class="contact-form">
+<h3>Send din forespørgsel</h3>
+<form action="#" method="POST">
+<div class="form-row">
+<div class="form-group">
+<label for="navn">Dit navn *</label>
+<input type="text" id="navn" name="navn" placeholder="Indtast dit fulde navn" required>
+</div>
+<div class="form-group">
+<label for="email">Din email *</label>
+<input type="email" id="email" name="email" placeholder="din@email.dk" required>
+</div>
+</div>
+<div class="form-group">
+<label for="telefon">Dit telefonnummer *</label>
+<input type="tel" id="telefon" name="telefon" placeholder="Fx 12 34 56 78" required>
+</div>
+<div class="form-group">
+<label for="besked">Beskriv din opgave</label>
+<textarea id="besked" name="besked" placeholder="Fortæl os kort om hvad du har brug for – fx type opgave, størrelse, tidsramme..."></textarea>
+</div>
+<button type="submit" class="submit-btn">Få gratis tilbud →</button>
+<p class="form-footer">🔒 Vi deler ikke dine oplysninger. 100% uforpligtende.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div class="footer-left">
+<div class="logo">asdasdsad</div>
+<p>Professionel asddadaasd i Brøndby</p>
+</div>
+<div class="footer-right">
+<p>Telefon: <a href="tel:+4561714003">+4561714003</a></p>
+<p>Email: <a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2024 asdasdsad – Alle rettigheder forbeholdes. asddadaasd i Brøndby.</p>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
