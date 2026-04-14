@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokal Håndværker - Professionel Service</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color: #333;
+line-height: 1.6;
+}
+nav {
+background: #1a1a2e;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.logo {
+color: #f0a500;
+font-size: 1.5rem;
+font-weight: 700;
+text-decoration: none;
+}
+.nav-links {
+display: flex;
+list-style: none;
+gap: 2rem;
+}
+.nav-links a {
+color: #fff;
+text-decoration: none;
+font-size: 0.95rem;
+transition: color 0.3s;
+}
+.nav-links a:hover {
+color: #f0a500;
+}
+.hero {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 2rem;
+padding-top: 80px;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23f0a500" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="%23f0a500" opacity="0.1"/><circle cx="50" cy="80" r="2" fill="%23f0a500" opacity="0.1"/><circle cx="10" cy="70" r="1" fill="%23f0a500" opacity="0.1"/><circle cx="90" cy="10" r="2" fill="%23f0a500" opacity="0.1"/></svg>');
+}
+.hero-content {
+position: relative;
+z-index: 1;
+max-width: 800px;
+}
+.hero-badge {
+background: #f0a500;
+color: #1a1a2e;
+padding: 0.4rem 1.2rem;
+border-radius: 50px;
+font-size: 0.85rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+display: inline-block;
+margin-bottom: 1.5rem;
+}
+.hero h1 {
+color: #fff;
+font-size: 3.5rem;
+font-weight: 800;
+margin-bottom: 1rem;
+line-height: 1.2;
+}
+.hero h1 span {
+color: #f0a500;
+}
+.hero p {
+color: #a8b2c1;
+font-size: 1.2rem;
+margin-bottom: 2.5rem;
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+}
+.hero-buttons {
+display: flex;
+gap: 1rem;
+justify-content: center;
+flex-wrap: wrap;
+}
+.btn-primary {
+background: #f0a500;
+color: #1a1a2e;
+padding: 1rem 2.5rem;
+border: none;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s;
+display: inline-block;
+}
+.btn-primary:hover {
+background: #d4920a;
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(240,165,0,0.4);
+}
+.btn-secondary {
+background: transparent;
+color: #fff;
+padding: 1rem 2.5rem;
+border: 2px solid #fff;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s;
+display: inline-block;
+}
+.btn-secondary:hover {
+background: #fff;
+color: #1a1a2e;
+transform: translateY(-2px);
+}
+.stats {
+background: #f0a500;
+padding: 3rem 2rem;
+}
+.stats-grid {
+max-width: 900px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2rem;
+text-align: center;
+}
+.stat-item h3 {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1a1a2e;
+}
+.stat-item p {
+color: #1a1a2e;
+font-weight: 600;
+font-size: 0.95rem;
+}
+.services {
+padding: 5rem 2rem;
+background: #f8f9fa;
+}
+.section-header {
+text-align: center;
+margin-bottom: 3rem;
+}
+.section-label {
+color: #f0a500;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-size: 0.85rem;
+display: block;
+margin-bottom: 0.5rem;
+}
+.section-header h2 {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1a1a2e;
+margin-bottom: 1rem;
+}
+.section-header p {
+color: #666;
+font-size: 1.1rem;
+max-width: 600px;
+margin: 0 auto;
+}
+.services-grid {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+}
+.service-card {
+background: #fff;
+border-radius: 15px;
+padding: 2.5rem;
+box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+transition: all 0.3s;
+border-bottom: 4px solid transparent;
+}
+.service-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+border-bottom-color: #f0a500;
+}
+.service-icon {
+font-size: 3rem;
+margin-bottom: 1.5rem;
+display: block;
+}
+.service-card h3 {
+font-size: 1.4rem;
+font-weight: 700;
+color: #1a1a2e;
+margin-bottom: 1rem;
+}
+.service-card p {
+color: #666;
+line-height: 1.7;
+margin-bottom: 1.5rem;
+}
+.service-list {
+list-style: none;
+}
+.service-list li {
+color: #555;
+padding: 0.3rem 0;
+padding-left: 1.5rem;
+position: relative;
+font-size: 0.95rem;
+}
+.service-list li::before {
+content: '✓';
+position: absolute;
+left: 0;
+color: #f0a500;
+font-weight: 700;
+}
+.about {
+padding: 5rem 2rem;
+background: #fff;
+}
+.about-container {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 4rem;
+align-items: center;
+}
+.about-image {
+background: linear-gradient(135deg, #1a1a2e, #0f3460);
+border-radius: 20px;
+padding: 3rem;
+text-align: center;
+color: #fff;
+position: relative;
+overflow: hidden;
+}
+.about-image::before {
+content: '🔨';
+font-size: 8rem;
+display: block;
+margin-bottom: 1rem;
+opacity: 0.8;
+}
+.about-image h3 {
+font-size: 1.5rem;
+color: #f0a500;
+margin-bottom: 0.5rem;
+}
+.about-image p {
+color: #a8b2c1;
+font-size: 0.95rem;
+}
+.about-content h2 {
+font-size: 2.3rem;
+font-weight: 800;
+color: #1a1a2e;
+margin-bottom: 1.5rem;
+line-height: 1.3;
+}
+.about-content h2 span {
+color: #f0a500;
+}
+.about-content p {
+color: #666;
+margin-bottom: 1.2rem;
+line-height: 1.8;
+font-size: 1rem;
+}
+.about-features {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+margin-top: 2rem;
+}
+.feature-item {
+display: flex;
+align-items: center;
+gap: 0.7rem;
+}
+.feature-icon {
+background: #f0a500;
+color: #fff;
+width: 35px;
+height: 35px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+flex-shrink: 0;
+}
+.feature-item span {
+font-weight: 600;
+color: #333;
+font-size: 0.9rem;
+}
+.testimonials {
+padding: 5rem 2rem;
+background: #1a1a2e;
+}
+.testimonials .section-header h2 {
+color: #fff;
+}
+.testimonials .section-header p {
+color: #a8b2c1;
+}
+.testimonials-grid {
+max-width: 1000px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+}
+.testimonial-card {
+background: #16213e;
+border-radius: 15px;
+padding: 2rem;
+border-left: 4px solid #f0a500;
+}
+.stars {
+color: #f0a500;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+}
+.testimonial-card p {
+color: #a8b2c1;
+line-height: 1.7;
+margin-bottom: 1.5rem;
+font-style: italic;
+}
+.testimonial-author {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+.author-avatar {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+background: #f0a500;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #1a1a2e;
+font-weight: 700;
+font-size: 1.1rem;
+}
+.author-info h4 {
+color: #fff;
+font-weight: 700;
+font-size: 0.95rem;
+}
+.author-info span {
+color: #a8b2c1;
+font-size: 0.85rem;
+}
+.contact {
+padding: 5rem 2rem;
+background: #f8f9fa;
+}
+.contact-container {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1.5fr;
+gap: 4rem;
+}
+.contact-info h2 {
+font-size: 2rem;
+font-weight: 800;
+color: #1a1a2e;
+margin-bottom: 1rem;
+}
+.contact-info p {
+color: #666;
+margin-bottom: 2rem;
+line-height: 1.7;
+}
+.contact-details {
+display: flex;
+flex-direction: column;
+gap: 1.2rem;
+}
+.contact-item {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+.contact-icon {
+background: #1a1a2e;
+color: #f0a500;
+width: 45px;
+height: 45px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+flex-shrink: 0;
+}
+.contact-item-info h4 {
+font-weight: 700;
+color: #1a1a2e;
+font-size: 0.9rem;
+}
+.contact-item-info p {
+color: #666;
+font-size: 0.95rem;
+}
+.contact-form {
+background: #fff;
+border-radius: 20px;
+padding: 3rem;
+box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+}
+.contact-form h3 {
+font-size: 1.5rem;
+font-weight: 700;
+color: #1a1a2e;
+margin-bottom: 2rem;
+}
+.form-group {
+margin-bottom: 1.5rem;
+}
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+.form-group label {
+display: block;
+font-weight: 600;
+color: #333;
+margin-bottom: 0.5rem;
+font-size: 0.9rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+padding: 0.9rem 1.2rem;
+border: 2px solid #e9ecef;
+border-radius: 10px;
+font-size: 1rem;
+transition: border-color 0.3s;
+font-family: inherit;
+color: #333;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: #f0a500;
+}
+.form-group textarea {
+resize: vertical;
+min-height: 120px;
+}
+.form-submit {
+width: 100%;
+background: #1a1a2e;
+color: #fff;
+padding: 1.1rem;
+border: none;
+border-radius: 10px;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s;
+}
+.form-submit:hover {
+background: #f0a500;
+color: #1a1a2e;
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(240,165,0,0.3);
+}
+footer {
+background: #0d0d1a;
+color: #a8b2c1;
+padding: 3rem 2rem 1.5rem;
+}
+.footer-grid {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 2fr 1fr 1fr;
+gap: 3rem;
+margin-bottom: 2rem;
+}
+.footer-brand .logo {
+font-size: 1.5rem;
+display: block;
+margin-bottom: 1rem;
+}
+.footer-brand p {
+line-height: 1.7;
+font-size: 0.95rem;
+}
+.footer-col h4 {
+color: #fff;
+font-weight: 700;
+margin-bottom: 1.2rem;
+font-size: 1rem;
+}
+.footer-links {
+list-style: none;
+}
+.footer-links li {
+margin-bottom: 0.6rem;
+}
+.footer-links a {
+color: #a8b2c1;
+text-decoration: none;
+font-size: 0.9rem;
+transition: color 0.3s;
+}
+.footer-links a:hover {
+color: #f0a500;
+}
+.footer-bottom {
+max-width: 1100px;
+margin: 0 auto;
+padding-top: 1.5rem;
+border-top: 1px solid #1a1a2e;
+text-align: center;
+font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2.2rem;
+}
+.stats-grid {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+.about-container {
+grid-template-columns: 1fr;
+}
+.contact-container {
+grid-template-columns: 1fr;
+}
+.footer-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+.form-row {
+grid-template-columns: 1fr;
+}
+.nav-links {
+display: none;
+}
+.about-features {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="#" class="logo">⚒ HåndværkerPro</a>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">Om os</a></li>
+<li><a href="#testimonials">Anmeldelser</a></li>
+<li><a href="#contact">Kontakt</a></li>
+</ul>
+<a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Få et tilbud</a>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<span class="hero-badge">🏆 Lokal tømrer siden 1998</span>
+<h1>Din lokale <span>tømrer</span> i hjertet af <span>Aarhus</span></h1>
+<p>Vi leverer professionelt tømrerarbejde i Aarhus og omegn. Fra renovering og tagarbejde til terrasser og køkkeninstallation – vi klarer det hele med håndværksmæssig stolthed.</p>
+<div class="hero-buttons">
+<a href="#contact" class="btn-primary">📞 Ring nu: 70 20 30 40</a>
+<a href="#services" class="btn-secondary">Se vores services</a>
+</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="stats-grid">
+<div class="stat-item">
+<h3>25+</h3>
+<p>År i branchen i Aarhus</p>
+</div>
+<div class="stat-item">
+<h3>1.200+</h3>
+<p>Tilfredse kunder</p>
+</div>
+<div class="stat-item">
+<h3>100%</h3>
+<p>Tilfredshedsgaranti</p>
+</div>
+</div>
+</section>
+
+<section class="services" id="services">
+<div class="section-header">
+<span class="section-label">Hvad vi tilbyder</span>
+<h2>Professionelt tømrerarbejde i Aarhus</h2>
+<p>Vi udfører alle former for tømrerarbejde i Aarhus med fokus på kvalitet, holdbarhed og æstetik. Alle opgaver løses af erfarne svende.</p>
+</div>
+<div class="services-grid">
+
+<div class="service-card">
+<span class="service-icon">🏠</span>
+<h3>Tagarbejde & Tagrenovering</h3>
+<p>Vi renoverer og reparerer tage på alle typer boliger i Aarhus-området. Vi arbejder med tegltage, stråtage, fladt tag og mere.</p>
+<ul class="service-list">
+<li>Udskiftning af tagbelægning</li>
+<li>Reparation af tagkonstruktion</li>
+<li>Kviste og ovenlys</li>
+<li>Tagrender og inddækninger</li>
+<li>Isolering af tag</li>
+</ul>
+</div>
+
+<div class="service-card">
+<span class="service-icon">🔨</span>
+<h3>Renovering & Ombygning</h3>
+<p>Fra totalrenovering til mindre ombygninger hjælper vi boligejere og erhvervskunder i Aarhus med at forny og forbedre deres ejendomme.</p>
+<ul class="service-list">
+<li>Indvendige vægge og skillevægge</li>
+<li>Gulvlægning – parket og trægulv</li>
+<li>Loft og bjælkelag</li>
+<li>Vinduer og døre</li>
+<li>Tilbygninger</li>
+</ul>
+</div>
+
+<div class="service-card">
+<span class="service-icon">🌿</span>
+<h3>Terrasse & Haveprojekter</h3>
+<p>Drømmer du om en ny terrasse i Aarhus? Vi bygger smukke og holdbare træterrasser, carporte og havehuse i høj kvalitet.</p>
+<ul class="service-list">
+<li>Træterrasser i massivtræ og komposit</li>
+<li>Carporte og overdækninger</li>
+<li>Havehuse og redskabsskure</li>
+<li>Hegn og stakit</li>
+<li>Trapper og gelændere</li>
+</ul>
+</div>
+
+<div class="service-card">
+<span class="service-icon">🍳</span>
+<h3>Køkken & Bad</h3>
+<p>Vi monterer og tilpasser køkkener og badeværelser over hele Aarhus. Fagligt udført med øje for detaljen og det praktiske.</p>
+<ul class="service-list">
+<li>Køkkenmontage og tilpasning</li>
+<li>Køkkenrenovering</li>
+<li>Badeværelsesrenovering</li>
+<li>Skabsinstallationer</li>
+<li>Bordplader og fliseindfatninger</li>
+</ul>
+</div>
+
+<div class="service-card">
+<span class="service-icon">🪵</span>
+<h3>Snedkerarbejde & Specialopgaver</h3>
+<p>Vi udfører skræddersyet snedkerarbejde til private og erhverv i Aarhus, uanset om det er specialmøbler eller unikke løsninger.</p>
+<ul class="service-list">
+<li>Indbyggede reoler og skabe</li>
+<li>Trapper og gelændersystemer</li>
+<li>Restaurering af gamle træelementer</li>
+<li>Specialproducerede møbler</li>
+<li>Vinduesrammer og paneler</li>
+</ul>
+</div>
+
+<div class="service-card">
+<span class="service-icon">🏗️</span>
+<h3>Nybyg & Tilbygning</h3>
+<p>Fra fundament til færdigt hus – vi hjælper med nybyggeri og tilbygninger til parcelhuse og rækkehuse i hele Aarhus-området.</p>
+<ul class="service-list">
+<li>Projektering og rådgivning</li>
+<li>Råhus og tagkonstruktion</li>
+<li>Isolering og dampspærre</li>
+<li>Indvendig færdiggørelse</li>
+<li>Samarbejde med andre håndværkere</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="about-container">
+<div class="about-image">
+<h3>Aarhus' foretrukne tømrer</h3>
+<p>Mere end 25 år med faglig stolthed og lokalt engagement</p>
+</div>
+<div class="about-content">
+<h2>Vi er <span>lokale håndværkere</span> med rødder i Aarhus</h2>
+<p>HåndværkerPro er en familieejet tømrervirksomhed grundlagt i Aarhus i 1998. Gennem mere end to årtier har vi betjent hundredvis af private og erhvervskunder i Aarhus og omegn med professionelt og pålideligt tømrerarbejde.</p>
+<p>Vi kender Aarhus-området indgående – byens byggeskik, lokale materialer og de særlige krav, som det midtjyske klima stiller til bygninger. Det giver os en unik fordel som din lokale tømrer i Aarhus.</p>
+<p>Vores hold består af uddannede tømmermænd og snedkere med mange års erfaring. Vi er stolte af vores håndværk og går aldrig på kompromis med kvaliteten – uanset om det er en lille reparation eller et større byggeprojekt i Aarhus.</p>
+<div class="about-features">
+<div class="feature-item">
+<div class="feature-icon">✓</div>
+<span>Autoriseret tømrermester</span>
+</div>
+<div class="feature-item">
+<div class="feature-icon">✓</div>
+<span>Forsikret og garanteret</span>
+</div>
+<div class="feature-item">
+<div class="feature-icon">✓</div>
+<span>Gratis tilbudsgivning</span>
+</div>
+<div class="feature-item">
+<div class="feature-icon">✓</div>
+<span>Lokal Aarhus virksomhed</span>
+</div>
+<div class="feature-item">
+<div class="feature-icon">✓</div>
+<span>5 års håndværksgaranti</span>
+</div>
+<div class="feature-item">
+<div class="feature-icon">✓</div>
+<span>Miljøvenlige materialer</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials" id="testimonials">
+<div class="section-header">
+<span class="section-label">Hvad siger vores kunder</span>
+<h2>Anmeldelser fra Aarhus</h2>
+<p>Vi er stolte af vores kunders tilfredshed. Læs hvad nogle af vores kunder fra Aarhus og omegn siger om os.</p>
+</div>
+<div class="testimonials-grid">
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>"Vi fik lavet en stor terrasse af HåndværkerPro, og resultatet overgik alle forventninger. Prisen var fair, og håndværkerne var super professionelle og punktlige. Vi anbefaler dem varmt til alle i Aarhus."</p>
+<div class="testimonial-author">
+<div class="author-avatar">MH</div>
+<div class="author-info">
+<h4>Mette Henriksen</h4>
+<span>Aarhus N</span>
+</div>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>"Vores tag var i dårlig stand efter vinteren. HåndværkerPro kom hurtigt ud med et tilbud og gik straks i gang. De udskiftede hele tagbelægningen på rekordtid. Meget tilfreds med arbejdet!"</p>
+<div class="testimonial-author">
+<div class="author-avatar">PL</div>
+<div class="author-info">
+<h4>Peter Larsen</h4>
+<span>Aarhus V</span>
+</div>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>"Vi bad om hjælp til en komplet køkkenrenovering i vores lejlighed i Aarhus midtby. Alt fra montering til finish blev udført med stor omhu. Et firma man kan stole på 100 procent."</p>
+<div class="testimonial-author">
+<div class="author-avatar">SB</div>
+<div class="author-info">
+<h4>Sara Bech</h4>
+<span>Aarhus C</span>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="section-header">
+<span class="section-label">Kom i kontakt</span>
+<h2>Få et gratis tilbud i Aarhus</h2>
+<p>Kontakt os i dag og hør mere om, hvad vi kan gøre for dig. Vi tilbyder altid et gratis og uforpligtende tilbud til kunder i hele Aarhus-området.</p>
+</div>
+<div class="contact-container">
+<div class="contact-info">
+<h2>Kontakt os direkte</h2>
+<p>Vi er klar til at hjælpe dig med dit tømrerprojekt i Aarhus. Ring, skriv eller udfyld formularen – vi vender tilbage inden for 24 timer.</p>
+<div class="contact-details">
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div class="contact-item-info">
+<h4>Telefon</h4>
+<p>70 20 30 40</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">✉️</div>
+<div class="contact-item-info">
+<h4>Email</h4>
+<p>info@haandvaerkerpro.dk
