@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Jespersen – Din frisør i Århus syd | Klip & styling</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0e0e12;--bg2:#16161d;--bg3:#1c1c26;--accent:#c9a96e;--accent2:#b08942;--text:#e8e4dc;--text2:#a9a49b;--white:#fff;--radius:12px;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;}
+img{max-width:100%;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(14,14,18,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,169,110,.12);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:.5px;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:var(--text2);font-size:.92rem;font-weight:500;transition:.3s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{background:var(--accent);color:var(--bg)!important;padding:10px 22px;border-radius:50px;font-weight:700;font-size:.9rem;transition:.3s;}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px);}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
+.mobile-toggle span{width:26px;height:2px;background:var(--accent);border-radius:2px;transition:.3s;}
+
+/* HERO – split layout */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(201,169,110,.08) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,169,110,.05) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;width:100%;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.2);border-radius:50px;padding:8px 20px 8px 14px;font-size:.82rem;color:var(--accent);font-weight:600;margin-bottom:24px;}
+.hero-badge .dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;line-height:1.1;margin-bottom:20px;color:var(--white);}
+.hero h1 .highlight{color:var(--accent);position:relative;}
+.hero-sub{font-size:1.15rem;color:var(--text2);margin-bottom:36px;max-width:520px;line-height:1.7;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-primary{background:var(--accent);color:var(--bg);padding:16px 36px;border-radius:50px;font-weight:700;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s;border:none;cursor:pointer;}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,169,110,.25);}
+.btn-secondary{background:transparent;color:var(--accent);padding:16px 36px;border-radius:50px;font-weight:700;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s;border:2px solid rgba(201,169,110,.3);cursor:pointer;}
+.btn-secondary:hover{border-color:var(--accent);background:rgba(201,169,110,.08);}
+.hero-phone{display:flex;align-items:center;gap:12px;font-size:1.3rem;font-weight:700;color:var(--white);}
+.hero-phone .icon{width:48px;height:48px;background:rgba(201,169,110,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.hero-phone small{display:block;font-size:.78rem;color:var(--text2);font-weight:400;}
+
+/* Hero right – visual card */
+.hero-visual{position:relative;}
+.hero-card{background:var(--bg2);border:1px solid rgba(201,169,110,.1);border-radius:24px;padding:48px 40px;position:relative;overflow:hidden;}
+.hero-card::before{content:'✂';position:absolute;top:-20px;right:-10px;font-size:120px;opacity:.04;}
+.hero-card-label{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:600;margin-bottom:20px;}
+.hero-card h3{font-size:1.5rem;color:var(--white);margin-bottom:24px;font-weight:700;}
+.hero-card-list{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.hero-card-list li{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--text2);}
+.hero-card-list li .check{width:28px;height:28px;background:rgba(201,169,110,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.85rem;flex-shrink:0;}
+.floating-badge{position:absolute;bottom:-18px;right:24px;background:var(--accent);color:var(--bg);padding:14px 24px;border-radius:16px;font-weight:700;font-size:.95rem;box-shadow:0 12px 40px rgba(201,169,110,.3);}
+
+/* TRUST BAR */
+.trust{background:var(--bg2);border-top:1px solid rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.08);padding:0 24px;}
+.trust-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.trust-item{padding:32px 24px;text-align:center;border-right:1px solid rgba(201,169,110,.08);position:relative;}
+.trust-item:last-child{border-right:none;}
+.trust-icon{font-size:1.6rem;margin-bottom:10px;}
+.trust-item strong{display:block;font-size:1.1rem;color:var(--white);margin-bottom:4px;}
+.trust-item span{font-size:.85rem;color:var(--text2);}
+
+/* SECTIONS */
+section{padding:100px 24px;}
+.section-tag{display:inline-block;font-size:.78rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);font-weight:600;margin-bottom:14px;background:rgba(201,169,110,.08);padding:6px 16px;border-radius:50px;}
+.section-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.2;}
+.section-desc{font-size:1.05rem;color:var(--text2);max-width:580px;line-height:1.7;}
+
+/* SERVICES */
+.services-grid{max-width:1200px;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.service-card{background:var(--bg2);border:1px solid rgba(201,169,110,.08);border-radius:20px;padding:40px 32px;transition:.4s;position:relative;overflow:hidden;}
+.service-card:hover{border-color:rgba(201,169,110,.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.3);}
+.service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:.4s;}
+.service-card:hover::after{opacity:1;}
+.service-icon{width:56px;height:56px;background:rgba(201,169,110,.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;}
+.service-card h3{font-size:1.2rem;color:var(--white);margin-bottom:10px;font-weight:700;}
+.service-card p{font-size:.92rem;color:var(--text2);line-height:1.6;}
+
+/* ABOUT – split */
+.about{background:var(--bg2);}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-visual{background:var(--bg3);border:1px solid rgba(201,169,110,.1);border-radius:24px;padding:60px 48px;text-align:center;position:relative;}
+.about-visual .big-icon{font-size:5rem;margin-bottom:20px;}
+.about-visual .quote{font-size:1.15rem;color:var(--text2);font-style:italic;line-height:1.7;}
+.about-visual .quote-name{margin-top:16px;color:var(--accent);font-weight:600;font-style:normal;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;}
+.about-stat{background:var(--bg3);border-radius:16px;padding:24px;text-align:center;}
+.about-stat .num{font-size:2rem;font-weight:800;color:var(--accent);}
+.about-stat .label{font-size:.82rem;color:var(--text2);margin-top:4px;}
+
+/* REVIEWS */
+.reviews-grid{max-width:1200px;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.review-card{background:var(--bg2);border:1px solid rgba(201,169,110,.08);border-radius:20px;padding:36px 32px;position:relative;}
+.review-stars{color:var(--accent);font-size:1rem;letter-spacing:2px;margin-bottom:16px;}
+.review-card p{font-size:.95rem;color:var(--text2);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:12px;}
+.review-avatar{width:44px;height:44px;background:rgba(201,169,110,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:1rem;}
+.review-name{font-weight:600;color:var(--white);font-size:.92rem;}
+.review-loc{font-size:.8rem;color:var(--text2);}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,rgba(201,169,110,.1),rgba(201,169,110,.03));border:1px solid rgba(201,169,110,.15);border-radius:28px;max-width:1200px;margin:0 auto;padding:60px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.cta-banner h2{font-size:1.8rem;color:var(--white);font-weight:800;}
+.cta-banner p{color:var(--text2);margin-top:8px;font-size:1rem;}
+.cta-banner-btns{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* CONTACT */
+.contact{background:var(--bg2);}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.contact-form{background:var(--bg);border:1px solid rgba(201,169,110,.1);border-radius:24px;padding:48px 40px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:.85rem;color:var(--text2);margin-bottom:8px;font-weight:500;}
+.form-group input,.form-group textarea{width:100%;background:var(--bg2);border:1px solid rgba(201,169,110,.1);border-radius:12px;padding:14px 18px;color:var(--white);font-size:1rem;font-family:inherit;transition:.3s;outline:none;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,169,110,.1);}
+.form-group textarea{height:120px;resize:vertical;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(169,164,155,.4);}
+.form-submit{width:100%;padding:18px;background:var(--accent);color:var(--bg);border:none;border-radius:50px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:.3s;font-family:inherit;}
+.form-submit:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,169,110,.25);}
+.form-note{text-align:center;margin-top:14px;font-size:.82rem;color:var(--text2);}
+
+.contact-info-card{background:var(--bg);border:1px solid rgba(201,169,110,.1);border-radius:24px;padding:40px;margin-bottom:24px;}
+.contact-info-card h3{color:var(--white);font-size:1.2rem;margin-bottom:20px;font-weight:700;}
+.info-row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(201,169,110,.06);}
+.info-row:last-child{border-bottom:none;}
+.info-icon{width:44px;height:44px;background:rgba(201,169,110,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.info-row strong{display:block;color:var(--white);font-size:.95rem;}
+.info-row span{font-size:.85rem;color:var(--text2);}
+.urgency-box{background:linear-gradient(135deg,rgba(74,222,128,.08),rgba(74,222,128,.02));border:1px solid rgba(74,222,128,.15);border-radius:20px;padding:28px 32px;display:flex;align-items:center;gap:16px;}
+.urgency-box .pulse-dot{width:12px;height:12px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0;}
+.urgency-box p{font-size:.95rem;color:var(--text);}
+.urgency-box strong{color:#4ade80;}
+
+/* FOOTER */
+.footer{padding:40px 24px;text-align:center;border-top:1px solid rgba(201,169,110,.08);}
+.footer p{font-size:.88rem;color:var(--text2);}
+.footer a{color:var(--accent);}
+
+/* MOBILE */
+@media(max-width:900px){
+.nav-links{display:none;}
+.mobile-toggle{display:flex;}
+.hero-inner{grid-template-columns:1fr;gap:40px;}
+.hero-visual{order:-1;}
+.trust-inner{grid-template-columns:repeat(2,1fr);}
+.trust-item:nth-child(2){border-right:none;}
+.trust-item{border-bottom:1px solid rgba(201,169,110,.08);}
+.services-grid{grid-template-columns:1fr;}
+.about-inner{grid-template-columns:1fr;}
+.reviews-grid{grid-template-columns:1fr;}
+.contact-inner{grid-template-columns:1fr;}
+.cta-banner{text-align:center;justify-content:center;}
+.cta-banner-btns{justify-content:center;}
+}
+@media(max-width:600px){
+.hero{padding:90px 16px 50px;}
+.hero h1{font-size:2rem;}
+.hero-btns{flex-direction:column;}
+.btn-primary,.btn-secondary{width:100%;justify-content:center;}
+.trust-inner{grid-template-columns:1fr;}
+.trust-item{border-right:none;}
+.hero-card{padding:32px 24px;}
+.contact-form{padding:32px 24px;}
+.cta-banner{padding:40px 24px;}
+section{padding:70px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<div class="logo">Salon <span>Jespersen</span></div>
+<div class="nav-links">
+<a href="#ydelser">Ydelser</a>
+<a href="#om">Om os</a>
+<a href="#anmeldelser">Anmeldelser</a>
+<a href="#kontakt">Kontakt</a>
+<a href="tel:+4561714003" class="nav-cta">Ring nu ✆</a>
+</div>
+<button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=this.classList.toggle('open')?'flex':'none';document.querySelector('.nav-links').style.flexDirection='column';document.querySelector('.nav-links').style.position='absolute';document.querySelector('.nav-links').style.top='68px';document.querySelector('.nav-links').style.left='0';document.querySelector('.nav-links').style.right='0';document.querySelector('.nav-links').style.background='rgba(14,14,18,.98)';document.querySelector('.nav-links').style.padding='24px';document.querySelector('.nav-links').style.gap='16px';" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-content">
+<div class="hero-badge"><span class="dot"></span> Ledige tider denne uge</div>
+<h1>Din frisør i<br><span class="highlight">Århus syd</span></h1>
+<p class="hero-sub">Salon Jespersen i Absalonsgade klarer dit hår – uanset om du skal have en klassisk herreklip, en frisk dameklipning eller bare en tiltrængt opstramning. Lokal, personlig og uden lange ventetider.</p>
+<div class="hero-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring nu: 61 71 40 03</a>
+<a href="#kontakt" class="btn-secondary">✉ Book tid online</a>
+</div>
+<div class="hero-phone">
+<div class="icon">✂</div>
+<div>
+<small>Vi svarer inden for 1 time</small>
++45 61 71 40 03
+</div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-card">
+<div class="hero-card-label">Populære ydelser</div>
+<h3>Det vi gør bedst</h3>
+<ul class="hero-card-list">
+<li><span class="check">✓</span> Herreklip – præcist og hurtigt</li>
+<li><span class="check">✓</span> Dameklip – klip, vask & styling</li>
+<li><span class="check">✓</span> Børneklip – tålmodighed inkluderet</li>
+<li><span class="check">✓</span> Skægtrimning & grooming</li>
+<li><span class="check">✓</span> Farvning & striber</li>
+</ul>
+<div class="floating-badge">★ 5/5 – Århus' lokale frisør</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+<div class="trust-inner">
+<div class="trust-item">
+<div class="trust-icon">⭐</div>
+<strong>5-stjernet service</strong>
+<span>Topbedømt i Århus</span>
+</div>
+<div class="trust-item">
+<div class="trust-icon">📍</div>
+<strong>Absalonsgade, Århus</strong>
+<span>Nem parkering i området</span>
+</div>
+<div class="trust-item">
+<div class="trust-icon">⏱</div>
+<strong>Hurtig respons</strong>
+<span>Vi svarer inden for 1 time</span>
+</div>
+<div class="trust-item">
+<div class="trust-icon">✂</div>
+<strong>Erfaren frisør</strong>
+<span>Bo klipper med omhu</span>
+</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section id="ydelser">
+<div style="max-width:1200px;margin:0 auto;">
+<span class="section-tag">Ydelser</span>
+<h2 class="section-title">Alt inden for klip & styling<br>i Århus syd</h2>
+<p class="section-desc">Hos Salon Jespersen holder vi det enkelt: Du får en god klipning, uden unødig ventetid, til en fair pris. Vi klipper alle – mænd, kvinder og børn.</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">✂</div>
+<h3>Herreklip</h3>
+<p>Klassisk eller moderne – du bestemmer. Vi tager os tid til at finde det snit der passer dig, uden at du sidder i stolen hele dagen.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">💇</div>
+<h3>Dameklip & styling</h3>
+<p>Klip, vask og føntørring. Vi lytter til dine ønsker og sørger for at du går ud af døren med et resultat du er glad for.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🎨</div>
+<h3>Farvning & striber</h3>
+<p>Fuldfarve, highlights eller balayage. Vi rådgiver dig ærligt om hvad der vil se bedst ud, og bruger produkter der passer dit hår.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">👦</div>
+<h3>Børneklip</h3>
+<p>Rolige hænder og masser af tålmodighed. Vi gør klipningen til en god oplevelse – også for de mindste i Århus.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🧔</div>
+<h3>Skæg & grooming</h3>
+<p>Trimning, formning og pleje af dit skæg. Få det til at sidde lige i øjet – hverdag som weekend.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">💆</div>
+<h3>Hårvask & behandling</h3>
+<p>Giv dit hår lidt ekstra kærlighed. En god vask og behandling kan gøre underværker – specielt efter sommer eller vinter.</p>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<section style="padding:60px 24px;">
+<div class="cta-banner">
+<div>
+<h2>Klar til en frisk klipning?</h2>
+<p>Ring i dag og få en tid der passer dig – vi er i Absalonsgade i Århus syd.</p>
+</div>
+<div class="cta-banner-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring: 61 71 40 03</a>
+<a href="#kontakt" class="btn-secondary">✉ Skriv til os</a>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="om">
+<div class="about-inner">
+<div>
+<span class="section-tag">Om Salon Jespersen</span>
+<h2 class="section-title">Lokal frisør med<br>stolthed i Århus</h2>
+<p class="section-desc" style="margin-bottom:20px;">Salon Jespersen drives af Bo Jespersen og holder til i Absalonsgade i Århus syd. Her handler det ikke om fancy trends eller dyre produkter – men om at du får en klipning du er tilfreds med, hver eneste gang.</p>
+<p class="section-desc" style="margin-bottom:20px;">Vi tror på, at en god frisør lytter først og klipper bagefter. Derfor tager vi os altid tid til en kort snak, så vi rammer præcis det udtryk du går efter.</p>
+<p class="section-desc">Som lokal salon i Århus kender vi vores kunder ved navn – og mange er kommet igen i årevis. Det er vi stolte af.</p>
+<div class="about-stats">
+<div class="about-stat">
+<div class="num">1000+</div>
+<div class="label">Tilfredse kunder</div>
+</div>
+<div class="about-stat">
+<div class="num">5 ★</div>
+<div class="label">Gennemsnit</div>
+</div>
+<div class="about-stat">
+<div class="num">Århus</div>
+<div class="label">Absalonsgade syd</div>
+</div>
+<div class="about-stat">
+<div class="num">100%</div>
+<div class="label">Personlig service</div>
+</div>
+</div>
+</div>
+<div class="about-visual">
+<div class="big-icon">✂</div>
+<div class="quote">
+"Jeg elsker mit arbejde. Der er ikke noget bedre end at se en kunde gå ud af døren med et smil – det er derfor jeg blev frisør."
+<div class="quote-name">– Bo Jespersen, Salon Jespersen</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section id="anmeldelser">
+<div style="max-width:1200px;margin:0 auto;">
+<span class="section-tag">Anmeldelser</span>
+<h2 class="section-title">Det siger vores kunder<br>i Århus</h2>
+<p class="section-desc">Vi lader resultaterne tale for sig selv. Her er hvad nogle af vores faste kunder siger.</p>
+</div>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Har gået hos Bo i over to år nu, og jeg har aldrig været skuffet. Han lytter til hvad man vil have, og klipningen sidder altid perfekt. Kan varmt anbefales til alle i Århus syd."</p>
+<div class="review-author">
+<div class="review-avatar">MH</div>
+<div>
+<div class="review-name">Martin Hvid</div>
+<div class="review-loc">Århus syd</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Endelig en frisør i Århus hvor man ikke skal vente en evighed. Jeg ringede om formiddagen og sad i stolen samme eftermiddag. Super afslappet stemning og et rigtig godt resultat."</p>
+<div class="review-author">
+<div class="review-avatar">LK</div>
+<div>
+<div class="review-name">Louise Kragh</div>
+<div class="review-loc">Viby, Århus</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Mine drenge hader at blive klippet – men hos Salon Jespersen går det faktisk fint. Bo er rolig og tålmodig, og klipningen ser altid pæn ud. Vi kommer igen hver 6. uge."</p>
+<div class="review-author">
+<div class="review-avatar">SK</div>
+<div>
+<div class="review-name">Sofie Krarup</div>
+<div class="review-loc">Århus</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+<div style="max-width:1200px;margin:0 auto;">
+<span class="section-tag">Kontakt</span>
+<h2 class="section-title" style="margin-bottom:48px;">Book din tid hos<br>Salon Jespersen i Århus</h2>
+</div>
+<div class="contact-inner">
+<div class="contact-form">
+<h3 style="color:var(--white);font-size:1.3rem;margin-bottom:8px;">Skriv til os</h3>
+<p style="color:var(--text2);font-size:.9rem;margin-bottom:28px;">Udfyld formularen, så vender vi tilbage hurtigst muligt – typisk inden for 1 time.</p>
+<form action="#" method="POST">
+<div class="form-group">
+<label for="name">Dit navn</label>
+<input type="text" id="name" name="name" placeholder="Fx Anders Jensen" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="din@email.dk" required>
+</div>
+<div class="form-group">
+<label for="phone">Telefon</label>
+<input type="tel" id="phone" name="phone" placeholder="Fx 12 34 56 78" required>
+</div>
+<div class="form-group">
+<label for="message">Besked</label>
+<textarea id="message" name="message" placeholder="Hvad kan vi hjælpe med? Fx ønsket tid, type klipning osv."></textarea>
+</div>
+<button type="submit" class="form-submit">Få en tid – det er uforpligtende ✓</button>
+<p class="form-note">🔒 Vi deler aldrig dine oplysninger. Ingen binding.</p>
+</form>
+</div>
+<div>
+<div class="contact-info-card">
+<h3>Kontaktoplysninger</h3>
+<div class="info-row">
+<div class="info-icon">📞</div>
+<div>
+<strong><a href="tel:+4561714003" style="color:var(--white);">+45 61 71 40 03</a></strong>
+<span>Ring eller SMS – vi svarer hurtigt</span>
+</div>
+</div>
+<div class="info-row">
+<div class="info-icon">✉</div>
+<div>
+<strong><a href="mailto:dbobionu@gmail.com" style="color:var(--white);">dbobionu@gmail.com</a></strong>
+<span>Skriv til os når som helst</span>
+</div>
+</div>
+<div class="info-row">
+<div class="info-icon">📍</div>
+<div>
+<strong>Absalonsgade, Århus syd</strong>
+<span>Nem adgang og parkering i området</span>
+</div>
+</div>
+</div>
+<div class="urgency-box">
+<div class="pulse-dot"></div>
+<p><strong>Vi svarer typisk inden for 1 time.</strong><br>Ring direkte på <a href="tel:+4561714003">61 71 40 03</a> hvis det haster – vi er klar til at hjælpe dig.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>© 2024 Salon Jespersen – Absalonsgade, Århus syd · <a href="tel:+4561714003">+45 61 71 40 03</a> · <a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
