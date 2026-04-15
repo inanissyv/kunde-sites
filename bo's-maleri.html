@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bo's Maleri – Professionel Maler i Århus | Ring +4561714003</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#1a1a2e;--blue:#16213e;--accent:#e94560;--accent2:#0f3460;--gold:#f5c518;--light:#eee;--white:#fff;--gray:#a0a0b0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--dark);color:var(--light);line-height:1.7}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;background:rgba(22,33,62,.97);backdrop-filter:blur(10px);z-index:1000;padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:70px}
+.nav-logo{font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:1px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--gray);font-size:.95rem;transition:.3s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--accent);color:var(--white)!important;padding:10px 22px;border-radius:50px;font-weight:700;font-size:.95rem;transition:.3s;animation:pulse 2s infinite}
+.nav-cta:hover{background:#c73650;transform:scale(1.05)}
+
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(233,69,96,.5)}50%{box-shadow:0 0 0 12px rgba(233,69,96,0)}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 5% 60px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--dark) 0%,var(--blue) 50%,#0a1628 100%)}
+.hero::after{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(233,69,96,.12) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(233,69,96,.15);border:1px solid rgba(233,69,96,.3);color:var(--accent);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:20px}
+.hero-badge .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:3.2rem;font-weight:900;color:var(--white);line-height:1.15;margin-bottom:18px}
+.hero h1 span{color:var(--accent);position:relative}
+.hero-sub{font-size:1.15rem;color:var(--gray);margin-bottom:30px;max-width:500px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:35px}
+.btn-primary{background:var(--accent);color:var(--white);padding:16px 36px;border-radius:50px;font-size:1.05rem;font-weight:700;transition:.3s;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 25px rgba(233,69,96,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 35px rgba(233,69,96,.45)}
+.btn-secondary{background:transparent;color:var(--white);padding:16px 36px;border-radius:50px;font-size:1.05rem;font-weight:700;border:2px solid rgba(255,255,255,.2);transition:.3s;display:inline-flex;align-items:center;gap:10px}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-phone{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.hero-phone .icon{width:48px;height:48px;background:rgba(233,69,96,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.hero-phone .number{font-size:1.5rem;font-weight:800;color:var(--white);letter-spacing:1px}
+.hero-phone .label{font-size:.8rem;color:var(--gray)}
+.hero-right{position:relative}
+.hero-card{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:40px 35px}
+.hero-card h3{color:var(--white);font-size:1.3rem;margin-bottom:6px;text-align:center}
+.hero-card p{color:var(--gray);font-size:.9rem;text-align:center;margin-bottom:25px}
+.hero-card .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:25px}
+.stat-item{background:rgba(255,255,255,.04);border-radius:16px;padding:20px 16px;text-align:center;border:1px solid rgba(255,255,255,.06)}
+.stat-item .num{font-size:1.8rem;font-weight:900;color:var(--accent)}
+.stat-item .txt{font-size:.8rem;color:var(--gray);margin-top:4px}
+.hero-card .guarantee{background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);border-radius:12px;padding:14px;text-align:center;color:var(--gold);font-size:.9rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--accent2);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.trust-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0}
+.trust-item{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;gap:6px}
+.trust-item:last-child{border:none}
+.trust-item .icon{font-size:1.6rem;margin-bottom:4px}
+.trust-item .title{color:var(--white);font-weight:800;font-size:1rem}
+.trust-item .desc{color:var(--gray);font-size:.8rem}
+
+/* SECTION DEFAULTS */
+.section{padding:90px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:8px;background:rgba(233,69,96,.1);color:var(--accent);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px}
+.section-title{font-size:2.4rem;font-weight:900;color:var(--white);margin-bottom:14px;line-height:1.2}
+.section-desc{color:var(--gray);font-size:1.05rem;max-width:600px;margin-bottom:45px}
+
+/* SERVICES */
+.services{background:var(--dark)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px 28px;transition:.3s;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(233,69,96,.3);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:.3s}
+.service-card:hover::before{opacity:1}
+.service-icon{width:56px;height:56px;background:rgba(233,69,96,.12);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+.service-card h3{color:var(--white);font-size:1.15rem;margin-bottom:10px;font-weight:700}
+.service-card p{color:var(--gray);font-size:.9rem;line-height:1.7}
+
+/* ABOUT */
+.about{background:linear-gradient(180deg,var(--blue),var(--dark))}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-visual{position:relative}
+.about-box{background:linear-gradient(145deg,rgba(233,69,96,.1),rgba(15,52,96,.3));border:1px solid rgba(233,69,96,.15);border-radius:24px;padding:50px 40px;position:relative;overflow:hidden}
+.about-box::before{content:'"';position:absolute;top:-20px;right:20px;font-size:12rem;color:rgba(233,69,96,.07);font-family:Georgia,serif;line-height:1}
+.about-box blockquote{font-size:1.2rem;color:var(--light);font-style:italic;line-height:1.8;position:relative;z-index:2}
+.about-box .author{margin-top:20px;font-weight:700;color:var(--accent);font-style:normal;font-size:1rem}
+.about-text h2{font-size:2.2rem;font-weight:900;color:var(--white);margin-bottom:18px;line-height:1.2}
+.about-text p{color:var(--gray);font-size:1rem;margin-bottom:16px;line-height:1.8}
+.about-checklist{list-style:none;margin-top:25px}
+.about-checklist li{display:flex;align-items:center;gap:12px;color:var(--light);font-size:1rem;margin-bottom:12px}
+.about-checklist li .check{width:28px;height:28px;background:rgba(233,69,96,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.8rem;flex-shrink:0}
+
+/* REVIEWS */
+.reviews{background:var(--dark)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:32px 28px;transition:.3s}
+.review-card:hover{border-color:rgba(245,197,24,.2)}
+.review-stars{color:var(--gold);font-size:1.1rem;margin-bottom:14px;letter-spacing:2px}
+.review-card p{color:var(--light);font-size:.95rem;font-style:italic;line-height:1.7;margin-bottom:20px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;font-size:1rem}
+.review-name{color:var(--white);font-weight:700;font-size:.95rem}
+.review-loc{color:var(--gray);font-size:.8rem}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--accent),#c73650,var(--accent2));padding:70px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-50%;left:-30%;width:500px;height:500px;background:rgba(255,255,255,.05);border-radius:50%}
+.cta-banner h2{font-size:2.2rem;font-weight:900;color:var(--white);margin-bottom:10px;position:relative;z-index:2}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:1.1rem;margin-bottom:30px;position:relative;z-index:2}
+.cta-banner .btn-white{background:var(--white);color:var(--accent);padding:16px 40px;border-radius:50px;font-size:1.1rem;font-weight:800;display:inline-flex;align-items:center;gap:10px;transition:.3s;position:relative;z-index:2;box-shadow:0 4px 25px rgba(0,0,0,.2)}
+.cta-banner .btn-white:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(0,0,0,.3)}
+
+/* CONTACT */
+.contact{background:linear-gradient(180deg,var(--dark),var(--blue))}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.contact-info h2{font-size:2rem;font-weight:900;color:var(--white);margin-bottom:12px}
+.contact-info>p{color:var(--gray);font-size:1rem;margin-bottom:35px;line-height:1.7}
+.contact-detail{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.contact-detail .cicon{width:52px;height:52px;background:rgba(233,69,96,.12);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.contact-detail .clabel{font-size:.8rem;color:var(--gray)}
+.contact-detail .cvalue{font-size:1.05rem;color:var(--white);font-weight:700}
+.contact-urgent{background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.2);border-radius:16px;padding:20px;margin-top:30px;display:flex;align-items:center;gap:14px}
+.contact-urgent .uicon{font-size:1.5rem}
+.contact-urgent .utxt{color:var(--gold);font-size:.9rem;font-weight:600}
+.contact-form-box{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:40px 35px}
+.contact-form-box h3{color:var(--white);font-size:1.3rem;font-weight:800;margin-bottom:6px}
+.contact-form-box .formsub{color:var(--gray);font-size:.9rem;margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;color:var(--gray);font-size:.85rem;margin-bottom:6px;font-weight:600}
+.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px;color:var(--white);font-size:1rem;font-family:inherit;transition:.3s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(233,69,96,.15)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;background:var(--accent);color:var(--white);padding:16px;border:none;border-radius:50px;font-size:1.1rem;font-weight:800;cursor:pointer;transition:.3s;margin-top:8px;box-shadow:0 4px 25px rgba(233,69,96,.3)}
+.form-submit:hover{background:#c73650;transform:translateY(-2px)}
+.form-note{text-align:center;color:var(--gray);font-size:.8rem;margin-top:14px}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.4);padding:40px 5%;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+.footer p{color:var(--gray);font-size:.9rem}
+.footer a{color:var(--accent)}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--accent);color:var(--white);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 25px rgba(233,69,96,.5);transition:.3s;animation:pulse 2s infinite}
+.float-cta:hover{transform:scale(1.1)}
+
+/* RESPONSIVE */
+@media(max-width:968px){
+.hero-inner{grid-template-columns:1fr;text-align:center}
+.hero h1{font-size:2.3rem}
+.hero-sub{margin:0 auto 25px}
+.hero-btns{justify-content:center}
+.hero-phone{justify-content:center}
+.hero-right{max-width:500px;margin:0 auto}
+.service-grid{grid-template-columns:1fr 1fr}
+.about-grid{grid-template-columns:1fr}
+.review-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.trust-inner{grid-template-columns:1fr 1fr}
+.trust-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-links{display:none}
+}
+@media(max-width:600px){
+.hero h1{font-size:1.8rem}
+.hero-phone .number{font-size:1.2rem}
+.service-grid{grid-template-columns:1fr}
+.section-title{font-size:1.8rem}
+.trust-inner{grid-template-columns:1fr}
+.cta-banner h2{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<div class="nav-logo">Bo's <span>Maleri</span></div>
+<div class="nav-links">
+<a href="#services">Ydelser</a>
+<a href="#about">Om os</a>
+<a href="#reviews">Anmeldelser</a>
+<a href="#contact">Kontakt</a>
+<a href="tel:+4561714003" class="nav-cta">📞 Ring nu</a>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-left">
+<div class="hero-badge"><span class="dot"></span> Ledige tider i Århus lige nu</div>
+<h1>Professionel <span>maler</span> i Århus – kvalitet du kan se</h1>
+<p class="hero-sub">Bo's Maleri udfører alt malerarbejde i Århus og omegn. Vi maler og udfører alt slags arbejde – fra indvendige vægge til udvendige facader. Få et gratis og uforpligtende tilbud i dag.</p>
+<div class="hero-btns">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring nu – +4561714003</a>
+<a href="#contact" class="btn-secondary">✉️ Få gratis tilbud</a>
+</div>
+<div class="hero-phone">
+<div class="icon">⚡</div>
+<div>
+<div class="label">Vi svarer inden for 1 time</div>
+<a href="tel:+4561714003"><div class="number">+45 61 71 40 03</div></a>
+</div>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-card">
+<h3>Derfor vælger Århus os</h3>
+<p>Lokal maler med stolthed i arbejdet</p>
+<div class="stat-grid">
+<div class="stat-item"><div class="num">500+</div><div class="txt">Udførte opgaver</div></div>
+<div class="stat-item"><div class="num">5★</div><div class="txt">Kundebedømmelse</div></div>
+<div class="stat-item"><div class="num">100%</div><div class="txt">Tilfredsgaranti</div></div>
+<div class="stat-item"><div class="num">Århus</div><div class="txt">Lokalt forankret</div></div>
+</div>
+<div class="guarantee">🛡️ Gratis tilbud – ingen binding</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+<div class="trust-inner">
+<div class="trust-item">
+<div class="icon">⭐</div>
+<div class="title">5-stjernet service</div>
+<div class="desc">Topbedømt af kunder i Århus</div>
+</div>
+<div class="trust-item">
+<div class="icon">🎯</div>
+<div class="title">Alt malerarbejde</div>
+<div class="desc">Inde og ude – stort og småt</div>
+</div>
+<div class="trust-item">
+<div class="icon">💰</div>
+<div class="title">Gratis tilbud</div>
+<div class="desc">Uforpligtende og fair priser</div>
+</div>
+<div class="trust-item">
+<div class="icon">⚡</div>
+<div class="title">Hurtig opstart</div>
+<div class="desc">Svar inden for 1 time</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+<div class="section-inner">
+<div class="section-label">🎨 Vores ydelser</div>
+<h2 class="section-title">Alt malerarbejde i Århus – udført ordentligt</h2>
+<p class="section-desc">Hos Bo's Maleri klarer vi alle typer malerarbejde. Vi maler og udfører alt slags arbejde, så du kun skal ringe ét sted.</p>
+<div class="service-grid">
+<div class="service-card">
+<div class="service-icon">🏠</div>
+<h3>Indvendig maling</h3>
+<p>Vægge, lofter, paneler og karme. Vi sørger for rene linjer, ordentlig dækning og et flot resultat i alle rum. Populær opgave hos familier i Århus.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🏗️</div>
+<h3>Udvendig maling</h3>
+<p>Facader, vinduer, døre og træværk. Vi beskytter dit hus mod vind og vejr med kvalitetsmaling der holder i mange år – uanset om det er i Århus C eller forstæderne.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🖌️</div>
+<h3>Tapetopsætning</h3>
+<p>Professionel opsætning af tapet i alle typer. Vi klarer alt fra flitstapet til vinyltapet og specialtapet. Lige og pænt – uden bobler.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🔧</div>
+<h3>Spartling & reparation</h3>
+<p>Revner, huller og ujævne vægge? Vi spartler, sliber og klargør overfladerne, så de er klar til maling. En vigtig del af et holdbart resultat.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🏢</div>
+<h3>Erhvervsmaling</h3>
+<p>Kontor, butik eller lager – vi maler erhvervslokaler i hele Århus. Vi arbejder effektivt og kan tilpasse os jeres åbningstider.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🎨</div>
+<h3>Farverådgivning</h3>
+<p>Usikker på farvevalget? Vi hjælper dig med at finde de rigtige farver der passer til dine rum og dit hjem i Århus. Det koster ikke ekstra.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+<div class="section-inner">
+<div class="about-grid">
+<div class="about-visual">
+<div class="about-box">
+<blockquote>"Jeg har altid holdt af at gøre en forskel man kan se med det samme. Når en kunde ser resultatet og smiler – så ved jeg, at arbejdet er gjort ordentligt. Det er derfor jeg er maler."</blockquote>
+<div class="author">– Bo Hansen, indehaver af Bo's Maleri</div>
+</div>
+</div>
+<div class="about-text">
+<div class="section-label">🏠 Om Bo's Maleri</div>
+<h2>Lokal maler i Århus – med stolthed i hvert penselstrøg</h2>
+<p>Bo's Maleri er en lokal malervirksomhed i Århus, drevet af Bo Hansen. Vi maler og udfører alt slags arbejde for private og erhverv i hele Århus-området.</p>
+<p>Vi tror på ordentligt håndværk, ærlig kommunikation og priser uden overraskelser. Når du vælger Bo's Maleri, får du en maler der møder til tiden, holder hvad han lover, og efterlader dit hjem pænere end før.</p>
+<ul class="about-checklist">
+<li><span class="check">✓</span> Lokal virksomhed forankret i Århus</li>
+<li><span class="check">✓</span> Kvalitetsmaterialer fra anerkendte leverandører</li>
+<li><span class="check">✓</span> Grundig klargøring og afdækning</li>
+<li><span class="check">✓</span> Rydder altid op efter os</li>
+<li><span class="check">✓</span> Fast pris – ingen skjulte tillæg</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="reviews">
+<div class="section-inner">
+<div class="section-label">⭐ Kundeanmeldelser</div>
+<h2 class="section-title">Det siger vores kunder i Århus</h2>
+<p class="section-desc">Vi er stolte over den tillid, vores kunder viser os. Her er et par af de seneste anmeldelser.</p>
+<div class="review-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Vi fik malet hele stueetagen og Bo gjorde et fantastisk arbejde. Rene linjer, flot dækning og han var færdig endnu hurtigere end lovet. Kan varmt anbefales til alle i Århus!"</p>
+<div class="review-author">
+<div class="review-avatar">ML</div>
+<div>
+<div class="review-name">Mette Larsen</div>
+<div class="review-loc">Århus V</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Bo malede hele vores facade og alle vinduesrammer. Det ser ud som et helt nyt hus. Han var ærlig om prisen fra start, og der kom ingen ekstraregninger. Præcis den slags håndværker man drømmer om."</p>
+<div class="review-author">
+<div class="review-avatar">JN</div>
+<div>
+<div class="review-name">Jakob Nielsen</div>
+<div class="review-loc">Århus N</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Vi havde brug for en maler til vores nye lejlighed i Århus C. Bo kom hurtigt med et tilbud, startede op allerede ugen efter, og resultatet er perfekt. Vi ringer igen næste gang!"</p>
+<div class="review-author">
+<div class="review-avatar">SA</div>
+<div>
+<div class="review-name">Sofie Andersen</div>
+<div class="review-loc">Århus C</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+<h2>Klar til at få dit hjem malet? Ring til Århus' lokale maler</h2>
+<p>Få et gratis og uforpligtende tilbud – vi svarer inden for 1 time.</p>
+<a href="tel:+4561714003" class="btn-white">📞 Ring +45 61 71 40 03</a>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+<div class="section-inner">
+<div class="contact-grid">
+<div class="contact-info">
+<div class="section-label">📬 Kontakt os</div>
+<h2>Få et gratis tilbud på malerarbejde i Århus</h2>
+<p>Udfyld formularen eller ring direkte. Vi vender altid hurtigt tilbage med et ærligt og gennemsigtigt tilbud – helt uforpligtende.</p>
+
+<div class="contact-detail">
+<div class="cicon">📞</div>
+<div>
+<div class="clabel">Ring til os</div>
+<a href="tel:+4561714003"><div class="cvalue">+45 61 71 40 03</div></a>
+</div>
+</div>
+<div class="contact-detail">
+<div class="cicon">✉️</div>
+<div>
+<div class="clabel">Send en email</div>
+<a href="mailto:dbobionu@gmail.com"><div class="cvalue">dbobionu@gmail.com</div></a>
+</div>
+</div>
+<div class="contact-detail">
+<div class="cicon">📍</div>
+<div>
+<div class="clabel">Område</div>
+<div class="cvalue">Århus & omegn</div>
+</div>
+</div>
+
+<div class="contact-urgent">
+<div class="uicon">⚡</div>
+<div class="utxt">Vi svarer inden for 1 time i hverdagene. Har du travlt? Ring direkte – så tager vi den med det samme.</div>
+</div>
+</div>
+
+<div class="contact-form-box">
+<h3>Få gratis tilbud nu</h3>
+<p class="formsub">Udfyld nedenstående – vi kontakter dig hurtigt</p>
+<form action="#" method="POST">
+<div class="form-group">
+<label for="name">Dit navn</label>
+<input type="text" id="name" name="name" placeholder="Fx Anders Jensen" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="din@email.dk" required>
+</div>
+<div class="form-group">
+<label for="phone">Telefon</label>
+<input type="tel" id="phone" name="phone" placeholder="Dit telefonnummer" required>
+</div>
+<div class="form-group">
+<label for="message">Beskriv din opgave</label>
+<textarea id="message" name="message" placeholder="Fx: Vi skal have malet 3 værelser i vores hus i Århus V..." required></textarea>
+</div>
+<button type="submit" class="form-submit">🎨 Få gratis tilbud nu</button>
+<p class="form-note">🔒 Dine oplysninger deles ikke med andre. 100% uforpligtende.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>© 2024 Bo's Maleri – Professionel maler i Århus | <a href="tel:+4561714003">+45 61 71 40 03</a> | <a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></p>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="tel:+4561714003" class="float-cta" title="Ring til Bo's Maleri">📞</a>
+
+</body>
+</html>
