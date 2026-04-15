@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jespersen's klip – Din frisør i Brøndby | Ring +4561714003</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#C9A96E;--dark:#1A1A1A;--darker:#111;--cream:#F5F0E8;--white:#FEFEFE;--text:#E8E0D0;--accent:#D4A843}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* TOPBAR */
+.topbar{background:var(--darker);padding:10px 0;text-align:center;font-size:.85rem;color:var(--gold);letter-spacing:.5px;border-bottom:1px solid rgba(201,169,110,.15)}
+.topbar a{color:var(--gold);font-weight:600}
+.topbar span{margin:0 12px;opacity:.4}
+
+/* NAV */
+nav{background:rgba(17,17,17,.97);position:sticky;top:0;z-index:1000;padding:0 5%;backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,.1)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:70px}
+.logo{font-size:1.5rem;font-weight:700;color:var(--cream);letter-spacing:1px}
+.logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text);font-size:.9rem;transition:color .3s;opacity:.85}
+.nav-links a:hover{color:var(--gold);opacity:1}
+.nav-cta{background:var(--gold);color:var(--darker);padding:10px 22px;border-radius:6px;font-weight:700;font-size:.9rem;transition:all .3s}
+.nav-cta:hover{background:var(--accent);transform:translateY(-1px)}
+
+/* HERO – SPLIT LAYOUT */
+.hero{max-width:1200px;margin:0 auto;padding:80px 5% 60px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;min-height:85vh}
+.hero-text .badge{display:inline-block;background:rgba(201,169,110,.12);color:var(--gold);padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:1px;margin-bottom:24px;border:1px solid rgba(201,169,110,.2)}
+.hero-text h1{font-size:3.2rem;line-height:1.15;color:var(--cream);margin-bottom:20px;font-weight:800}
+.hero-text h1 span{color:var(--gold)}
+.hero-text p{font-size:1.15rem;line-height:1.7;opacity:.8;margin-bottom:36px;max-width:520px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.btn-primary{background:var(--gold);color:var(--darker);padding:16px 36px;border-radius:8px;font-weight:700;font-size:1.05rem;transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,.3)}
+.btn-secondary{border:2px solid rgba(201,169,110,.4);color:var(--gold);padding:16px 36px;border-radius:8px;font-weight:700;font-size:1.05rem;transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--gold);background:rgba(201,169,110,.08)}
+.hero-phone{font-size:1.3rem;color:var(--gold);font-weight:700}
+.hero-phone small{display:block;font-size:.78rem;color:var(--text);opacity:.6;font-weight:400;margin-bottom:2px}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-card{background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(201,169,110,.03));border:1px solid rgba(201,169,110,.15);border-radius:20px;padding:50px 40px;text-align:center;width:100%;max-width:420px}
+.hero-card .icon-big{font-size:5rem;margin-bottom:20px;display:block}
+.hero-card h3{color:var(--cream);font-size:1.4rem;margin-bottom:12px}
+.hero-card p{opacity:.7;font-size:.95rem;line-height:1.6;margin-bottom:24px}
+.hero-card .urgency{background:rgba(220,60,60,.12);border:1px solid rgba(220,60,60,.25);color:#E86A6A;padding:12px 20px;border-radius:8px;font-size:.85rem;font-weight:600}
+.hero-card .urgency::before{content:"⏰ "}
+.floating-badge{position:absolute;top:-10px;right:10px;background:var(--gold);color:var(--darker);padding:10px 16px;border-radius:10px;font-weight:700;font-size:.85rem;box-shadow:0 4px 20px rgba(201,169,110,.3);animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* TRUST BAR */
+.trust-bar{background:rgba(201,169,110,.06);border-top:1px solid rgba(201,169,110,.1);border-bottom:1px solid rgba(201,169,110,.1);padding:32px 5%}
+.trust-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.trust-item .trust-icon{font-size:1.8rem;margin-bottom:8px;display:block}
+.trust-item .trust-number{font-size:1.4rem;font-weight:800;color:var(--cream);margin-bottom:2px}
+.trust-item .trust-label{font-size:.82rem;opacity:.6}
+
+/* SECTIONS GENERAL */
+section{padding:80px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;color:var(--gold);font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:2.4rem;color:var(--cream);font-weight:800;margin-bottom:16px;line-height:1.2}
+.section-subtitle{font-size:1.05rem;opacity:.65;max-width:600px;line-height:1.6;margin-bottom:48px}
+
+/* SERVICES */
+.services{background:var(--darker)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.1);border-radius:16px;padding:36px 28px;transition:all .4s}
+.service-card:hover{border-color:rgba(201,169,110,.3);transform:translateY(-4px);background:rgba(201,169,110,.07)}
+.service-card .s-icon{font-size:2.2rem;margin-bottom:16px;display:block}
+.service-card h3{color:var(--cream);font-size:1.15rem;margin-bottom:10px;font-weight:700}
+.service-card p{font-size:.9rem;line-height:1.6;opacity:.65}
+.service-card .s-price{display:inline-block;margin-top:14px;color:var(--gold);font-weight:700;font-size:.9rem}
+
+/* ABOUT – SPLIT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{background:linear-gradient(135deg,rgba(201,169,110,.1),rgba(201,169,110,.03));border:1px solid rgba(201,169,110,.12);border-radius:20px;padding:60px 40px;text-align:center}
+.about-image .about-icon{font-size:5rem;display:block;margin-bottom:16px}
+.about-image .about-since{color:var(--gold);font-size:1.1rem;font-weight:700}
+.about-content h2{font-size:2.2rem;color:var(--cream);margin-bottom:20px;font-weight:800}
+.about-content p{font-size:1rem;line-height:1.8;opacity:.75;margin-bottom:16px}
+.about-list{list-style:none;margin:24px 0}
+.about-list li{padding:8px 0;font-size:.95rem;opacity:.8}
+.about-list li::before{content:"✓ ";color:var(--gold);font-weight:700}
+
+/* REVIEWS */
+.reviews{background:var(--darker)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.review-card{background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.1);border-radius:16px;padding:32px 28px;transition:all .3s}
+.review-card:hover{border-color:rgba(201,169,110,.25)}
+.review-stars{color:var(--gold);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
+.review-text{font-size:.95rem;line-height:1.7;opacity:.8;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:rgba(201,169,110,.15);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);font-size:1.1rem}
+.review-name{font-weight:700;color:var(--cream);font-size:.9rem}
+.review-location{font-size:.78rem;opacity:.5}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(201,169,110,.04));border-top:1px solid rgba(201,169,110,.15);border-bottom:1px solid rgba(201,169,110,.15);padding:60px 5%;text-align:center}
+.cta-banner h2{font-size:2rem;color:var(--cream);margin-bottom:12px;font-weight:800}
+.cta-banner p{opacity:.7;margin-bottom:28px;font-size:1.05rem}
+.cta-banner .btn-primary{font-size:1.1rem;padding:18px 44px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-info h2{font-size:2.2rem;color:var(--cream);margin-bottom:20px;font-weight:800}
+.contact-info>p{opacity:.7;line-height:1.7;margin-bottom:32px}
+.info-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;padding:20px;background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.08);border-radius:12px}
+.info-item .info-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.info-item .info-label{font-size:.78rem;opacity:.5;margin-bottom:2px;text-transform:uppercase;letter-spacing:1px}
+.info-item .info-value{color:var(--cream);font-weight:700;font-size:1.05rem}
+.info-item .info-value a{color:var(--gold)}
+.contact-form-wrap{background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.12);border-radius:20px;padding:40px 36px}
+.contact-form-wrap h3{color:var(--cream);font-size:1.3rem;margin-bottom:6px;font-weight:700}
+.contact-form-wrap .form-sub{opacity:.6;font-size:.88rem;margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.82rem;color:var(--gold);margin-bottom:6px;font-weight:600;letter-spacing:.5px}
+.form-group input,.form-group textarea{width:100%;padding:14px 18px;background:rgba(0,0,0,.3);border:1px solid rgba(201,169,110,.15);border-radius:10px;color:var(--cream);font-size:.95rem;font-family:inherit;transition:border-color .3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--gold)}
+.form-group textarea{height:110px;resize:vertical}
+.form-submit{width:100%;padding:16px;background:var(--gold);color:var(--darker);border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:inherit;margin-top:4px}
+.form-submit:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,169,110,.3)}
+.form-note{text-align:center;font-size:.78rem;opacity:.45;margin-top:12px}
+
+/* FOOTER */
+footer{background:var(--darker);border-top:1px solid rgba(201,169,110,.1);padding:40px 5%;text-align:center}
+footer p{opacity:.4;font-size:.85rem}
+footer a{color:var(--gold)}
+
+/* MOBILE MENU */
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.menu-toggle span{width:24px;height:2px;background:var(--gold);transition:all .3s}
+
+/* STICKY CTA MOBILE */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--darker);border-top:2px solid var(--gold);padding:12px 5%}
+.sticky-cta a{display:block;background:var(--gold);color:var(--darker);text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:1.05rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;text-align:center;padding:50px 5% 40px;min-height:auto;gap:40px}
+.hero-text p{margin-left:auto;margin-right:auto}
+.hero-buttons{justify-content:center}
+.hero-visual{order:-1}
+.hero-card{max-width:360px;margin:0 auto;padding:36px 28px}
+.floating-badge{right:0;top:-8px}
+.hero-phone{text-align:center}
+.hero-text h1{font-size:2.2rem}
+.services-grid{grid-template-columns:1fr 1fr;gap:16px}
+.about-grid{grid-template-columns:1fr;gap:40px}
+.reviews-grid{grid-template-columns:1fr;gap:20px}
+.contact-grid{grid-template-columns:1fr;gap:40px}
+.trust-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+.nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--darker);flex-direction:column;padding:24px;gap:16px;border-bottom:1px solid rgba(201,169,110,.1)}
+.nav-links.active{display:flex}
+.menu-toggle{display:flex}
+.sticky-cta{display:block}
+.section-title{font-size:1.8rem}
+}
+@media(max-width:600px){
+.services-grid{grid-template-columns:1fr}
+.trust-inner{grid-template-columns:repeat(2,1fr)}
+.hero-text h1{font-size:1.8rem}
+.contact-form-wrap{padding:28px 20px}
+section{padding:60px 5%}
+body{padding-bottom:70px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+<a href="tel:+4561714003">📞 +45 61 71 40 03</a>
+<span>|</span>
+<a href="mailto:dbobionu@gmail.com">✉ dbobionu@gmail.com</a>
+<span>|</span>
+📍 Brøndby
+</div>
+
+<!-- NAV -->
+<nav>
+<div class="nav-inner">
+<div class="logo"><em>Jespersen's</em> klip</div>
+<button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links">
+<a href="#ydelser">Ydelser</a>
+<a href="#om">Om os</a>
+<a href="#anmeldelser">Anmeldelser</a>
+<a href="#kontakt">Kontakt</a>
+<a href="tel:+4561714003" class="nav-cta">Ring nu</a>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-text">
+<div class="badge">✂ DIN LOKALE FRISØR I BRØNDBY</div>
+<h1>Professionel frisør i <span>Brøndby</span> – klip der sidder</h1>
+<p>Hos Jespersen's klip får du en frisør der lytter, rådgiver og leverer et resultat du bliver glad for. Vi holder til i Brøndby og kender vores kunder ved navn.</p>
+<div class="hero-buttons">
+<a href="tel:+4561714003" class="btn-primary">📞 Ring nu</a>
+<a href="#kontakt" class="btn-secondary">✉ Bestil tid</a>
+</div>
+<div class="hero-phone">
+<small>Ring direkte – vi svarer hurtigt</small>
+<a href="tel:+4561714003">+45 61 71 40 03</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="floating-badge">⭐ 5 stjerner</div>
+<div class="hero-card">
+<span class="icon-big">✂️</span>
+<h3>Bo Jespersen</h3>
+<p>Erfaren frisør i Brøndby med passion for håndværket. Personlig betjening hver gang.</p>
+<div class="urgency">Få ledige tider denne uge – book nu</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+<div class="trust-inner">
+<div class="trust-item">
+<span class="trust-icon">⭐</span>
+<div class="trust-number">5-stjernet</div>
+<div class="trust-label">Kundeanmeldelser</div>
+</div>
+<div class="trust-item">
+<span class="trust-icon">✂️</span>
+<div class="trust-number">Mange års</div>
+<div class="trust-label">Erfaring som frisør</div>
+</div>
+<div class="trust-item">
+<span class="trust-icon">📍</span>
+<div class="trust-number">Brøndby</div>
+<div class="trust-label">Lokal & personlig</div>
+</div>
+<div class="trust-item">
+<span class="trust-icon">⏰</span>
+<div class="trust-number">Inden 1 time</div>
+<div class="trust-label">Vi svarer på din henvendelse</div>
+</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="ydelser">
+<div class="section-inner">
+<span class="section-tag">Vores ydelser</span>
+<h2 class="section-title">Professionelle frisørydelser i Brøndby</h2>
+<p class="section-subtitle">Uanset om du skal have en klassisk herreklip, en ny frisure eller en frisk styling – så klarer vi det hos Jespersen's klip.</p>
+<div class="services-grid">
+<div class="service-card">
+<span class="s-icon">💇‍♂️</span>
+<h3>Herreklip</h3>
+<p>Klassisk eller moderne herreklip tilpasset din stil og dit hår. Vi rådgiver dig gerne.</p>
+<span class="s-price">Fra 200 kr.</span>
+</div>
+<div class="service-card">
+<span class="s-icon">💇‍♀️</span>
+<h3>Dameklip</h3>
+<p>Alt fra trim til helt ny frisure. Vi lytter til dine ønsker og skaber et resultat du elsker.</p>
+<span class="s-price">Fra 300 kr.</span>
+</div>
+<div class="service-card">
+<span class="s-icon">👦</span>
+<h3>Børneklip</h3>
+<p>Tålmodig og venlig klipning for de små. Vi sørger for en god oplevelse for hele familien.</p>
+<span class="s-price">Fra 150 kr.</span>
+</div>
+<div class="service-card">
+<span class="s-icon">🧔</span>
+<h3>Skægtrimning</h3>
+<p>Professionel trimning og formning af skæg. Få et velplejet og skarpt look.</p>
+<span class="s-price">Fra 100 kr.</span>
+</div>
+<div class="service-card">
+<span class="s-icon">🎨</span>
+<h3>Farvning</h3>
+<p>Helfarve, striber eller balayage – vi hjælper dig med at finde den rigtige nuance.</p>
+<span class="s-price">Fra 450 kr.</span>
+</div>
+<div class="service-card">
+<span class="s-icon">💆</span>
+<h3>Vask & Styling</h3>
+<p>Frisk hårvask og professionel styling til hverdag eller en særlig lejlighed.</p>
+<span class="s-price">Fra 150 kr.</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+<h2>Klar til en ny frisure? Book din tid i Brøndby nu</h2>
+<p>Vi svarer på din henvendelse inden for 1 time – ring eller skriv til os</p>
+<a href="tel:+4561714003" class="btn-primary">📞 Ring +45 61 71 40 03</a>
+</div>
+
+<!-- ABOUT -->
+<section id="om">
+<div class="section-inner">
+<div class="about-grid">
+<div class="about-image">
+<span class="about-icon">✂️</span>
+<div class="about-since">Jespersen's klip – Brøndby</div>
+</div>
+<div class="about-content">
+<span class="section-tag">Om Jespersen's klip</span>
+<h2>Din lokale frisør i Brøndby</h2>
+<p>Jeg hedder Bo Jespersen og driver Jespersen's klip i Brøndby. For mig handler det om at give dig en god oplevelse i stolen – ikke bare et hurtigt klip. Jeg tager mig tid til at lytte, rådgive og sørge for, at du går herfra med et smil.</p>
+<p>Som lokal frisør i Brøndby kender jeg mange af mine kunder personligt. Det er den slags relation jeg sætter pris på, og det er derfor folk kommer igen.</p>
+<ul class="about-list">
+<li>Personlig betjening – ingen samlebåndsklip</li>
+<li>Lokal frisør i hjertet af Brøndby</li>
+<li>Klip for hele familien – herrer, damer og børn</li>
+<li>Ingen binding – du betaler kun for det du får</li>
+<li>Hurtig respons – vi svarer inden for 1 time</li>
+</ul>
+<a href="#kontakt" class="btn-primary">Bestil tid nu</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="anmeldelser">
+<div class="section-inner">
+<span class="section-tag">Kundeanmeldelser</span>
+<h2 class="section-title">Det siger vores kunder i Brøndby</h2>
+<p class="section-subtitle">Vi er stolte af de relationer vi har til vores kunder. Her er hvad nogle af dem siger.</p>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Har brugt Jespersen's klip i et par år nu, og det er den bedste frisør jeg har prøvet i Brøndby. Bo lytter til hvad man vil have og leverer altid. Min søn vil heller ikke klippes andre steder."</p>
+<div class="review-author">
+<div class="review-avatar">M</div>
+<div>
+<div class="review-name">Martin H.</div>
+<div class="review-location">Brøndby</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Super hyggelig salon og Bo er virkelig dygtig. Jeg ville have noget nyt og han rådgav mig perfekt. Fik masser af komplimenter bagefter! Kan klart anbefale Jespersen's klip."</p>
+<div class="review-author">
+<div class="review-avatar">L</div>
+<div>
+<div class="review-name">Louise K.</div>
+<div class="review-location">Brøndby Strand</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">"Endelig en frisør i Brøndby der ikke har travlt med at skubbe folk ud af døren. Bo tager sig tid, og resultatet er altid i top. Fair priser og man føler sig velkommen. Anbefales!"</p>
+<div class="review-author">
+<div class="review-avatar">P</div>
+<div>
+<div class="review-name">Peter J.</div>
+<div class="review-location">Brøndbyøster</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA BANNER 2 -->
+<div class="cta-banner">
+<h2>Gratis rådgivning – ingen binding</h2>
+<p>Er du i tvivl om hvad der passer dig? Ring og lad os tage en snak – helt uforpligtende</p>
+<a href="tel:+4561714003" class="btn-primary">📞 Ring Bo nu – +45 61 71 40 03</a>
+</div>
+
+<!-- CONTACT -->
+<section id="kontakt">
+<div class="section-inner">
+<div class="contact-grid">
+<div class="contact-info">
+<span class="section-tag">Kontakt os</span>
+<h2>Book din tid hos Jespersen's klip i Brøndby</h2>
+<p>Udfyld formularen eller ring direkte. Vi svarer på alle henvendelser inden for 1 time i åbningstiden. Det er uforpligtende og du binder dig ikke til noget.</p>
+
+<div class="info-item">
+<span class="info-icon">📞</span>
+<div>
+<div class="info-label">Telefon</div>
+<div class="info-value"><a href="tel:+4561714003">+45 61 71 40 03</a></div>
+</div>
+</div>
+
+<div class="info-item">
+<span class="info-icon">✉️</span>
+<div>
+<div class="info-label">Email</div>
+<div class="info-value"><a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></div>
+</div>
+</div>
+
+<div class="info-item">
+<span class="info-icon">📍</span>
+<div>
+<div class="info-label">Område</div>
+<div class="info-value">Brøndby og omegn</div>
+</div>
+</div>
+
+<div class="info-item">
+<span class="info-icon">⏰</span>
+<div>
+<div class="info-label">Responstid</div>
+<div class="info-value">Vi svarer inden for 1 time</div>
+</div>
+</div>
+</div>
+
+<div class="contact-form-wrap">
+<h3>Bestil tid eller få et svar</h3>
+<p class="form-sub">Udfyld felterne – vi vender tilbage hurtigst muligt</p>
+<form action="#" method="POST">
+<div class="form-group">
+<label for="navn">Dit navn</label>
+<input type="text" id="navn" name="navn" placeholder="Hvad hedder du?" required>
+</div>
+<div class="form-group">
+<label for="email">Din email</label>
+<input type="email" id="email" name="email" placeholder="Din email adresse" required>
+</div>
+<div class="form-group">
+<label for="telefon">Dit telefonnummer</label>
+<input type="tel" id="telefon" name="telefon" placeholder="Så vi kan ringe dig op" required>
+</div>
+<div class="form-group">
+<label for="besked">Din besked</label>
+<textarea id="besked" name="besked" placeholder="Fortæl os hvad du har brug for – fx klip, farvning, tidspunkt du foretrækker..."></textarea>
+</div>
+<button type="submit" class="form-submit">Bestil tid – det er uforpligtende ✂️</button>
+<p class="form-note">Vi svarer inden for 1 time · Ingen binding · Ingen skjulte omkostninger</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>&copy; 2024 Jespersen's klip · Bo Jespersen · Frisør i Brøndby · <a href="tel:+4561714003">+45 61 71 40 03</a> · <a href="mailto:dbobionu@gmail.com">dbobionu@gmail.com</a></p>
+</footer>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta">
+<a href="tel:+4561714003">📞 Ring nu – +45 61 71 40 03</a>
+</div>
+
+</body>
+</html>
